@@ -195,15 +195,15 @@ export default function Page(): JSX.Element {
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: prefersReducedMotion ? 0 : 0.6,
-              delay: prefersReducedMotion ? 0 : 0.15,
+              delay: prefersReducedMotion ? 0 : 0.2,
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <a href="https://app.rivtor.com/register" className="rv-btn-v4 rv-btn-v4--primary">
-              Get Early Access
+            <a href="/design-partner" className="rv-btn-v4 rv-btn-v4--primary">
+              Work With Rivtor
             </a>
-            <a href="#demo" className="rv-btn-v4 rv-btn-v4--secondary">
-              Watch Demo
+            <a href="#execution" className="rv-btn-v4 rv-btn-v4--secondary">
+              See how it works
             </a>
           </motion.div>
 
@@ -283,9 +283,9 @@ export default function Page(): JSX.Element {
 
            <Reveal delay={0.1}>
              <div style={{ textAlign: 'center' }}>
-              <a href="https://app.rivtor.com/register" className="rv-btn-v4 rv-btn-v4--primary">
-                  Get Early Access
-                </a>
+              <button className="rv-btn-v4 rv-btn-v4--primary" type="button">
+                  Work With Rivtor
+                </button>
              </div>
            </Reveal>
          </div>
