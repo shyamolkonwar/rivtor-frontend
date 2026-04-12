@@ -93,6 +93,45 @@ export default function DesignPartnerPage(): JSX.Element {
 
   return (
     <main className="rv-landing-v4">
+      <style>{`
+        @media (max-width: 640px) {
+          .dp-hero-title {
+            font-size: 36px !important;
+            line-height: 1.2 !important;
+          }
+          .dp-hero-subtitle {
+            font-size: 16px !important;
+            line-height: 1.6 !important;
+          }
+          .dp-cta-title {
+            font-size: 28px !important;
+            line-height: 1.2 !important;
+          }
+          .dp-section-title {
+            font-size: 24px !important;
+            line-height: 1.3 !important;
+          }
+          .dp-label {
+            font-size: 11px !important;
+          }
+          .dp-for-not-for-title {
+            font-size: 16px !important;
+          }
+          .dp-item-main {
+            font-size: 17px !important;
+          }
+          .dp-item-support {
+            font-size: 14px !important;
+          }
+          .dp-section-header {
+            font-size: 18px !important;
+          }
+          .dp-section-text {
+            font-size: 17px !important;
+            line-height: 1.6 !important;
+          }
+        }
+      `}</style>
       <Navbar />
 
       {/* Navbar spacer */}
@@ -120,6 +159,7 @@ export default function DesignPartnerPage(): JSX.Element {
 
           <motion.h1
             id="hero-title"
+            className="dp-hero-title"
             style={{
               fontSize: '64px',
               fontWeight: 600,
@@ -143,6 +183,7 @@ export default function DesignPartnerPage(): JSX.Element {
           </motion.h1>
 
           <motion.p
+            className="dp-hero-subtitle"
             style={{
               fontSize: '18px',
               lineHeight: '28px',
@@ -175,9 +216,7 @@ export default function DesignPartnerPage(): JSX.Element {
             }}
           >
             <a
-              href="https://forms.gle/ug9CwvzfCoEVMhAQ8"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/apply"
               className="rv-btn-v4 rv-btn-v4--primary"
             >
               Apply to Join
@@ -192,6 +231,7 @@ export default function DesignPartnerPage(): JSX.Element {
           <Reveal>
             <div style={{ maxWidth: '700px' }}>
               <h2
+                className="dp-section-title"
                 style={{
                   fontSize: '32px',
                   fontWeight: 600,
@@ -226,6 +266,7 @@ export default function DesignPartnerPage(): JSX.Element {
           <Reveal>
             <div style={{ maxWidth: '800px' }}>
               <p
+                className="dp-section-text"
                 style={{
                   fontSize: '20px',
                   lineHeight: '1.5',
@@ -238,6 +279,7 @@ export default function DesignPartnerPage(): JSX.Element {
                 This isn't a typical launch.
               </p>
               <p
+                className="dp-section-text"
                 style={{
                   fontSize: '20px',
                   lineHeight: '1.5',
@@ -250,6 +292,7 @@ export default function DesignPartnerPage(): JSX.Element {
                 We're building it with a small group of companies.
               </p>
               <p
+                className="dp-section-text"
                 style={{
                   fontSize: '20px',
                   lineHeight: '1.5',
@@ -288,6 +331,7 @@ export default function DesignPartnerPage(): JSX.Element {
                 }}
               >
                 <h3
+                  className="dp-for-not-for-title"
                   style={{
                     fontSize: '18px',
                     fontWeight: 600,
@@ -325,6 +369,7 @@ export default function DesignPartnerPage(): JSX.Element {
                 }}
               >
                 <h3
+                  className="dp-for-not-for-title"
                   style={{
                     fontSize: '18px',
                     fontWeight: 600,
@@ -371,6 +416,7 @@ export default function DesignPartnerPage(): JSX.Element {
               {/* LEFT - WHAT YOU GET */}
               <div>
                 <h3
+                  className="dp-section-header"
                   style={{
                     fontSize: '22px',
                     fontWeight: 600,
@@ -395,6 +441,7 @@ export default function DesignPartnerPage(): JSX.Element {
                       style={{ cursor: 'default' }}
                     >
                       <p
+                        className="dp-item-main"
                         style={{
                           fontSize: '20px',
                           fontWeight: 500,
@@ -408,6 +455,7 @@ export default function DesignPartnerPage(): JSX.Element {
                         {item.main}
                       </p>
                       <p
+                        className="dp-item-support"
                         style={{
                           fontSize: '16px',
                           color: 'rgba(255,255,255,0.5)',
@@ -436,6 +484,7 @@ export default function DesignPartnerPage(): JSX.Element {
               {/* RIGHT - HOW WE WORK */}
               <div>
                 <h3
+                  className="dp-section-header"
                   style={{
                     fontSize: '22px',
                     fontWeight: 600,
@@ -460,6 +509,7 @@ export default function DesignPartnerPage(): JSX.Element {
                       style={{ cursor: 'default' }}
                     >
                       <p
+                        className="dp-item-main"
                         style={{
                           fontSize: '20px',
                           fontWeight: 500,
@@ -473,6 +523,7 @@ export default function DesignPartnerPage(): JSX.Element {
                         {item.main}
                       </p>
                       <p
+                        className="dp-item-support"
                         style={{
                           fontSize: '16px',
                           color: 'rgba(255,255,255,0.5)',
@@ -498,6 +549,7 @@ export default function DesignPartnerPage(): JSX.Element {
           <Reveal>
             <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto' }}>
               <h2
+                className="dp-section-title"
                 style={{
                   fontSize: '28px',
                   fontWeight: 600,
@@ -567,6 +619,7 @@ export default function DesignPartnerPage(): JSX.Element {
           <Reveal>
             <h2
               id="cta-title"
+              className="dp-cta-title"
               style={{
                 fontSize: '40px',
                 fontWeight: 600,
@@ -586,9 +639,7 @@ export default function DesignPartnerPage(): JSX.Element {
           <Reveal delay={0.1}>
             <div style={{ textAlign: 'center' }}>
               <a
-                href="https://forms.gle/ug9CwvzfCoEVMhAQ8"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/apply"
                 className="rv-btn-v4 rv-btn-v4--primary"
               >
                 Apply Now
