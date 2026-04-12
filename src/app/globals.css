@@ -1847,7 +1847,34 @@ body {
   }
 
   .rv-h1-v4 {
-    font-size: 48px;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .rv-problem-headline {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .rv-problem-block {
+    height: auto;
+    min-height: 64px;
+    padding: 14px 16px;
+  }
+
+  .rv-problem-block-text {
+    font-size: 14px;
+  }
+
+  .rv-problem-block-status {
+    font-size: 12px;
+  }
+
+  .rv-hero-v4__copy,
+  .rv-section-v4__copy {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 100%;
   }
 
   .rv-h2-v4 {
@@ -1856,11 +1883,6 @@ body {
 
   .rv-h3-v4 {
     font-size: 20px;
-  }
-
-  .rv-hero-v4__copy,
-  .rv-section-v4__copy {
-    max-width: 100%;
   }
 
   .rv-section-v4 {
