@@ -3,13 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-
-interface QualificationData {
-  stage: string;
-  activelyBuilding: string;
-  urgency: string;
-  problem: string;
-}
+import { storeQualificationData, type QualificationData } from '@/lib/application-flow';
 
 export default function QualifyPage() {
   const router = useRouter();
@@ -26,9 +20,8 @@ export default function QualifyPage() {
   const shouldReject = formData.activelyBuilding === 'No' || formData.urgency === 'Not urgent';
 
   const handleContinue = () => {
-    // Store qualification data for scoring
-    sessionStorage.setItem('qualificationData', JSON.stringify(formData));
-    sessionStorage.setItem('qualificationScore', calculateQualificationScore(formData).toString());
+    // Store qualification data using shared utility
+    storeQualificationData(formData, calculateQualificationScore(formData));
 
     if (shouldReject) {
       router.push('/apply/not-fit');

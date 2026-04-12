@@ -1,8 +1,19 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import {
+  SESSION_KEYS,
+  mapStageFromQualification,
+  mapUrgencyFromQualification,
+  mapStageToDatabase,
+  mapUrgencyToDatabase,
+  mapProblemAreaToDatabase,
+  mapPaymentIntentToDatabase,
+  mapIntentTypeToDatabase,
+  getQualificationField,
+} from '@/lib/application-flow';
 
 interface ApplicationData {
   // Section A: Context
@@ -38,107 +49,121 @@ interface ApplicationData {
 
 export default function ApplicationPage() {
   const router = useRouter();
-  const [formData, setFormData] = useState<ApplicationData>({
-    name: '',
-    email: '',
-    company: '',
-    website: '',
-    whatBuilding: '',
-    stage: '',
-    users: '',
-    biggestProblem: '',
-    whereBreaking: '',
-    whatTried: '',
-    urgencyLevel: '',
-    ifNotSolved: '',
-    outcomeNoBrainer: '',
-    success14Days: '',
-    willingToCollaborate: '',
-    giveAccess: '',
-    whyRivtor: '',
-    openToPaid: '',
-    whatExecuteFaster: '',
-    lookingToDo: '',
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [formData, setFormData] = useState<ApplicationData>(() => {
+    // Initialize with qualification data if available
+    const qualStage = getQualificationField('QUALIFICATION_STAGE');
+    const qualProblem = getQualificationField('QUALIFICATION_PROBLEM');
+    const qualUrgency = getQualificationField('QUALIFICATION_URGENCY');
+
+    return {
+      name: '',
+      email: '',
+      company: '',
+      website: '',
+      whatBuilding: '',
+      stage: qualStage ? mapStageFromQualification(qualStage || '') : '',
+      users: '',
+      biggestProblem: qualProblem || '',
+      whereBreaking: '',
+      whatTried: '',
+      urgencyLevel: qualUrgency ? mapUrgencyFromQualification(qualUrgency || '') : '',
+      ifNotSolved: '',
+      outcomeNoBrainer: '',
+      success14Days: '',
+      willingToCollaborate: '',
+      giveAccess: '',
+      whyRivtor: '',
+      openToPaid: '',
+      whatExecuteFaster: '',
+      lookingToDo: '',
+    };
   });
 
   const canSubmit = formData.name && formData.email && formData.whatBuilding && formData.biggestProblem && formData.whyRivtor && formData.outcomeNoBrainer && formData.willingToCollaborate;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
 
-    // Auto-reject filters
-    if (formData.willingToCollaborate === 'No' || formData.giveAccess === 'No') {
-      router.push('/apply/not-fit');
-      return;
+    try {
+      // Auto-reject filters (client-side for immediate feedback)
+      if (formData.willingToCollaborate === 'No' || formData.giveAccess === 'No') {
+        router.push('/apply/not-fit');
+        return;
+      }
+
+      // Get qualification data from session storage
+      const activelyBuilding = getQualificationField('QUALIFICATION_ACTIVELY_BUILDING') === 'Yes';
+
+      // Transform form data to match API schema
+      const requestData = {
+        applicant: {
+          full_name: formData.name,
+          email: formData.email,
+          company_name: formData.company || undefined,
+          website: formData.website || undefined,
+        },
+        application: {
+          stage: mapStageToDatabase(formData.stage),
+          users_count: formData.users ? parseInt(formData.users) || null : null,
+          actively_building: activelyBuilding,
+          urgency: mapUrgencyToDatabase(formData.urgencyLevel),
+          biggest_problem: formData.biggestProblem,
+          problem_area: mapProblemAreaToDatabase(formData.whereBreaking),
+          attempted_solutions: formData.whatTried,
+          consequence_if_unsolved: formData.ifNotSolved,
+          desired_outcome: formData.outcomeNoBrainer,
+          success_7_14_days: formData.success14Days,
+          willing_to_collaborate: formData.willingToCollaborate !== 'Need more info',
+          can_provide_access: formData.giveAccess === 'Yes',
+          reason_for_rivtor: formData.whyRivtor,
+          payment_intent: mapPaymentIntentToDatabase(formData.openToPaid),
+          execution_gap: formData.whatExecuteFaster,
+          intent_type: mapIntentTypeToDatabase(formData.lookingToDo),
+        },
+      };
+
+      // Submit to API
+      const response = await fetch('/api/submit-application', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Submission failed');
+      }
+
+      // Store application data for review page
+      sessionStorage.setItem(SESSION_KEYS.APPLICATION_DATA, JSON.stringify(formData));
+      sessionStorage.setItem(SESSION_KEYS.APPLICATION_ID, data.data.applicationId);
+      sessionStorage.setItem(SESSION_KEYS.TOTAL_SCORE, data.data.score.toString());
+      sessionStorage.setItem(SESSION_KEYS.PRIORITY, data.data.priority);
+      sessionStorage.setItem(SESSION_KEYS.STATUS, data.data.status);
+
+      // Route based on server-side scoring
+      if (data.data.status === 'shortlisted' && data.data.score >= 10) {
+        router.push('/apply/call');
+      } else if (data.data.status === 'reviewing' || data.data.status === 'new') {
+        router.push('/apply/review');
+      } else if (data.data.status === 'rejected') {
+        router.push('/apply/not-fit');
+      } else {
+        router.push('/apply/review');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitError(error instanceof Error ? error.message : 'Failed to submit application');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    // Calculate total score
-    const totalScore = calculateTotalScore(formData);
-
-    // Store data for review page
-    sessionStorage.setItem('applicationData', JSON.stringify(formData));
-    sessionStorage.setItem('totalScore', totalScore.toString());
-
-    // Routing logic
-    if (totalScore >= 10) {
-      // High intent - go to calendar directly
-      router.push('/apply/call');
-    } else if (totalScore >= 6) {
-      // Mid intent - show review page
-      router.push('/apply/review');
-    } else {
-      // Low intent - reject
-      router.push('/apply/not-fit');
-    }
-  };
-
-  const calculateTotalScore = (data: ApplicationData): number => {
-    let score = 0;
-
-    // Get qualification score
-    const qualScore = parseInt(sessionStorage.getItem('qualificationScore') || '0');
-    score += qualScore;
-
-    // Stage scoring (if not already counted)
-    const stageScores: Record<string, number> = {
-      'Revenue': 3,
-      'Early users / Growing': 2,
-      'Have users': 2,
-      'Launched': 1,
-      'Building MVP': 1,
-      'Idea stage': 0,
-    };
-    score += stageScores[data.stage] || 0;
-
-    // Problem quality (assess by length and specificity)
-    if (data.biggestProblem.length > 50) score += 3;
-    else if (data.biggestProblem.length > 20) score += 1;
-
-    // Action taken
-    if (data.whatTried.length > 50) score += 2;
-    else if (data.whatTried.length > 20) score += 1;
-
-    // Collaboration (auto-reject handled separately, but scoring here)
-    if (data.willingToCollaborate === 'Yes, actively') score += 3;
-    else if (data.willingToCollaborate === 'Yes, occasionally') score += 2;
-
-    // Access
-    if (data.giveAccess === 'Yes') score += 2;
-
-    // Outcome clarity
-    if (data.outcomeNoBrainer.length > 80) score += 3;
-    else if (data.outcomeNoBrainer.length > 30) score += 1;
-
-    // Payment intent
-    if (data.openToPaid === 'Yes') score += 2;
-    else if (data.openToPaid === 'Maybe') score += 1;
-
-    // Extra filter - design partner
-    if (data.lookingToDo === 'Work closely as a design partner') score += 2;
-    else if (data.lookingToDo === 'Explore usage') score -= 1;
-    else if (data.lookingToDo === 'Not sure') score -= 2;
-
-    return score;
   };
 
   return (
@@ -525,10 +550,21 @@ export default function ApplicationPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              disabled={!canSubmit}
+              disabled={!canSubmit || isSubmitting}
             >
-              Submit Application
+              {isSubmitting ? 'Submitting...' : 'Submit Application'}
             </motion.button>
+
+            {/* Error message */}
+            {submitError && (
+              <motion.div
+                className="rv-apply-error"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {submitError}
+              </motion.div>
+            )}
           </form>
         </motion.div>
       </div>
@@ -701,6 +737,17 @@ export default function ApplicationPage() {
         .rv-apply-button:disabled {
           opacity: 0.4;
           cursor: not-allowed;
+        }
+
+        .rv-apply-error {
+          padding: 16px;
+          background: rgba(239, 68, 68, 0.1);
+          border: 1px solid rgba(239, 68, 68, 0.3);
+          border-radius: 8px;
+          color: #fca5a5;
+          font-size: 14px;
+          font-family: var(--font-body);
+          text-align: center;
         }
 
         @media (max-width: 640px) {
