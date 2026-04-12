@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
@@ -51,35 +51,42 @@ export default function ApplicationPage() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [formData, setFormData] = useState<ApplicationData>(() => {
-    // Initialize with qualification data if available
+  const [formData, setFormData] = useState<ApplicationData>({
+    name: '',
+    email: '',
+    company: '',
+    website: '',
+    whatBuilding: '',
+    stage: '',
+    users: '',
+    biggestProblem: '',
+    whereBreaking: '',
+    whatTried: '',
+    urgencyLevel: '',
+    ifNotSolved: '',
+    outcomeNoBrainer: '',
+    success14Days: '',
+    willingToCollaborate: '',
+    giveAccess: '',
+    whyRivtor: '',
+    openToPaid: '',
+    whatExecuteFaster: '',
+    lookingToDo: '',
+  });
+
+  // Load qualification data from sessionStorage on mount (client-side only)
+  useEffect(() => {
     const qualStage = getQualificationField('QUALIFICATION_STAGE');
     const qualProblem = getQualificationField('QUALIFICATION_PROBLEM');
     const qualUrgency = getQualificationField('QUALIFICATION_URGENCY');
 
-    return {
-      name: '',
-      email: '',
-      company: '',
-      website: '',
-      whatBuilding: '',
+    setFormData(prev => ({
+      ...prev,
       stage: qualStage ? mapStageFromQualification(qualStage || '') : '',
-      users: '',
       biggestProblem: qualProblem || '',
-      whereBreaking: '',
-      whatTried: '',
       urgencyLevel: qualUrgency ? mapUrgencyFromQualification(qualUrgency || '') : '',
-      ifNotSolved: '',
-      outcomeNoBrainer: '',
-      success14Days: '',
-      willingToCollaborate: '',
-      giveAccess: '',
-      whyRivtor: '',
-      openToPaid: '',
-      whatExecuteFaster: '',
-      lookingToDo: '',
-    };
-  });
+    }));
+  }, []);
 
   const canSubmit = formData.name && formData.email && formData.whatBuilding && formData.biggestProblem && formData.whyRivtor && formData.outcomeNoBrainer && formData.willingToCollaborate;
 
