@@ -26,8 +26,8 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
 
 export default function Navbar({
   navItems = DEFAULT_NAV_ITEMS,
-  ctaText = 'Get Access',
-  ctaHref = '/register',
+  ctaText = 'Apply',
+  ctaHref = '/design-partner',
   children,
 }: NavbarProps): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,7 +46,11 @@ export default function Navbar({
               {item.label}
             </Link>
           ))}
-          <Link href={ctaHref} className="rv-btn-v4 rv-btn-v4--primary" style={{ height: '40px', padding: '0 20px', fontSize: '14px' }}>
+          <Link
+            href={ctaHref}
+            className="rv-btn-v4 rv-btn-v4--primary"
+            style={{ height: '40px', padding: '0 20px', fontSize: '14px' }}
+          >
             {ctaText}
           </Link>
           {children}
@@ -89,7 +93,11 @@ export default function Navbar({
                 {item.label}
               </Link>
             ))}
-            <Link href={ctaHref} className="rv-btn-v4 rv-btn-v4--primary rv-mobile-cta" onClick={() => setMenuOpen(false)}>
+            <Link
+              href={ctaHref}
+              className="rv-btn-v4 rv-btn-v4--primary rv-mobile-cta"
+              onClick={() => setMenuOpen(false)}
+            >
               {ctaText}
             </Link>
             {children}
