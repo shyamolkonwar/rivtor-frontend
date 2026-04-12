@@ -61,9 +61,9 @@ export class RateLimiter {
 
       if (requests >= this.config.limit) {
         // Rate limited - get the oldest request to calculate reset time
-        const oldestRequest = await redis.zrange(key, 0, 0, { withScores: true });
+        const oldestRequest = await redis.zrange(key, 0, 0, { withScores: true }) as Array<[string, number]>;
         const resetTime = oldestRequest.length > 0
-          ? Math.ceil((oldestRequest[0].score + this.config.window * 1000) / 1000)
+          ? Math.ceil((oldestRequest[0][1] + this.config.window * 1000) / 1000)
           : Math.ceil((now + this.config.window * 1000) / 1000);
 
         return {

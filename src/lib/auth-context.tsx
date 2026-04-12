@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
-import { supabase } from './supabase';
+import { supabase } from './supabase/client';
 import { authApi } from './api';
 import { setAccessToken, clearAccessToken } from './auth/token-store';
 import type { Session } from '@supabase/supabase-js';

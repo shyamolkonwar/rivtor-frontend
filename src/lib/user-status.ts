@@ -33,7 +33,7 @@ export async function getUserStatus(): Promise<UserStatus> {
   for (let retry = 0; retry < maxRetries; retry++) {
     try {
       // Use the shared supabase client from lib/supabase for consistent cookie handling
-      const { supabase } = await import('./supabase')
+      const { supabase } = await import('./supabase/client')
       const { data: { session }, error: sessionError } = await supabase.auth.getSession()
 
       if (sessionError) {
@@ -108,7 +108,7 @@ export async function getUserStatus(): Promise<UserStatus> {
  * Calls the backend API to update user's onboarding status.
  */
 export async function markOnboardingComplete(): Promise<void> {
-  const { supabase } = await import('./supabase')
+  const { supabase } = await import('./supabase/client')
   const { data: { session } } = await supabase.auth.getSession()
 
   if (!session) {
