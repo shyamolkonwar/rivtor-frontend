@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import type { JSX } from 'react';
-import ExecutionSession from './ExecutionSession';
+import Link from 'next/link';
 
 type ChatExample = {
   user: string;
@@ -108,96 +107,87 @@ function ChatMessage({
 
 export default function ChatExperience({ examples }: ChatExperienceProps): JSX.Element {
   const prefersReducedMotion = useReducedMotion();
-  const [isSessionOpen, setIsSessionOpen] = useState(false);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: prefersReducedMotion ? 0 : 0.6,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      style={{
+        maxWidth: '800px',
+        margin: '0 auto',
+        backgroundColor: '#111111',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+        borderRadius: '16px',
+        padding: '32px',
+      }}
+    >
+      {examples.map((example, index) => {
+        const baseDelay = index * 1.5;
+
+        return (
+          <div key={index}>
+            <ChatMessage
+              name="You"
+              text={example.user}
+              isUser={true}
+              delay={baseDelay}
+            />
+            <ChatMessage
+              name="Rivtor"
+              text={example.rivtor}
+              isUser={false}
+              delay={baseDelay + 0.6}
+            />
+          </div>
+        );
+      })}
+
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
         transition={{
           duration: prefersReducedMotion ? 0 : 0.6,
+          delay: prefersReducedMotion ? 0 : 3.5,
           ease: [0.22, 1, 0.36, 1],
         }}
         style={{
-          maxWidth: '800px',
-          margin: '0 auto',
-          backgroundColor: '#111111',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
-          borderRadius: '16px',
-          padding: '32px',
+          marginTop: '32px',
+          textAlign: 'center',
         }}
       >
-        {examples.map((example, index) => {
-          const baseDelay = index * 1.5;
-
-          return (
-            <div key={index}>
-              <ChatMessage
-                name="You"
-                text={example.user}
-                isUser={true}
-                delay={baseDelay}
-              />
-              <ChatMessage
-                name="Rivtor"
-                text={example.rivtor}
-                isUser={false}
-                delay={baseDelay + 0.6}
-              />
-            </div>
-          );
-        })}
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{
-            duration: prefersReducedMotion ? 0 : 0.6,
-            delay: prefersReducedMotion ? 0 : 3.5,
-            ease: [0.22, 1, 0.36, 1],
-          }}
+        <Link
+          href="/demo"
           style={{
-            marginTop: '32px',
-            textAlign: 'center',
+            padding: '16px 32px',
+            backgroundColor: 'transparent',
+            border: '1px solid rgba(255, 255, 255, 0.12)',
+            borderRadius: '8px',
+            color: '#FFFFFF',
+            fontSize: '15px',
+            fontWeight: 500,
+            cursor: 'pointer',
+            textDecoration: 'none',
+            display: 'inline-block',
+            transition: 'all 0.2s ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.24)';
+            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+            e.currentTarget.style.backgroundColor = 'transparent';
           }}
         >
-          <button
-            onClick={() => setIsSessionOpen(true)}
-            style={{
-              padding: '16px 32px',
-              backgroundColor: 'transparent',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              borderRadius: '8px',
-              color: '#FFFFFF',
-              fontSize: '15px',
-              fontWeight: 500,
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.24)';
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
-              e.currentTarget.style.backgroundColor = 'transparent';
-            }}
-          >
-            See Rivtor in action
-          </button>
-        </motion.div>
+          See Rivtor in action
+        </Link>
       </motion.div>
-
-      <AnimatePresence>
-        {isSessionOpen && (
-          <ExecutionSession
-            onClose={() => setIsSessionOpen(false)}
-          />
-        )}
-      </AnimatePresence>
-    </>
+    </motion.div>
   );
 }
