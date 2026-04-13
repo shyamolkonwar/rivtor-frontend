@@ -16,6 +16,11 @@ import CategorySection from '@/components/landing/CategorySection';
 import FutureSection from '@/components/landing/FutureSection';
 import ChatExperience from '@/components/landing/ChatExperience';
 
+// SEO/GEO Components
+import { FAQDisplay, HowToSchema } from '@/components/seo';
+import { rivtorHowTo } from '@/data/rivtorGEO';
+import { rivtorFAQs } from '@/data/rivtorSEO';
+
 type RevealProps = {
   children: ReactNode;
   className?: string;
@@ -270,6 +275,17 @@ export default function Page(): JSX.Element {
        {/* ===== FUTURE SECTION ===== */}
        <FutureSection />
 
+      {/* ===== SEO: FAQ SECTION ===== */}
+      <Reveal>
+        <div className="rv-container-v4" style={{ paddingBottom: '80px' }}>
+          <FAQDisplay
+            questions={rivtorFAQs}
+            title="Frequently Asked Questions"
+            maxItems={3}
+          />
+        </div>
+      </Reveal>
+
         {/* ===== FINAL CTA SECTION ===== */}
         <section className="rv-section-v4 rv-section-v4--centered" aria-labelledby="cta-title">
          <div className="rv-container-v4">
@@ -292,6 +308,14 @@ export default function Page(): JSX.Element {
        </section>
 
       <Footer />
+
+      {/* ===== SEO: SCHEMA MARKUP ===== */}
+      <HowToSchema
+        name={rivtorHowTo.name}
+        description={rivtorHowTo.description}
+        steps={rivtorHowTo.steps}
+        totalTime={rivtorHowTo.totalTime}
+      />
     </main>
   );
 }

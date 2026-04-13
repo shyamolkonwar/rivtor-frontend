@@ -543,6 +543,60 @@ export default function DesignPartnerPage(): JSX.Element {
         </div>
       </section>
 
+      {/* ===== ENTERPRISE DATA HANDLING ===== */}
+      <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
+        <div className="rv-container-v4">
+          <Reveal>
+            <div
+              style={{
+                maxWidth: '700px',
+                margin: '0 auto',
+                padding: '32px',
+                background: 'rgba(255,255,255,0.02)',
+                border: '1px solid rgba(255,255,255,0.06)',
+                borderRadius: '12px',
+              }}
+            >
+              <div style={{ marginBottom: '24px' }}>
+                <h3
+                  style={{
+                    fontSize: '22px',
+                    fontWeight: 600,
+                    lineHeight: '1.3',
+                    letterSpacing: '-0.5%',
+                    color: 'var(--rv-text-primary)',
+                    margin: '0 0 12px 0',
+                    fontFamily: 'var(--font-headline)',
+                  }}
+                >
+                  Enterprise-Ready Data Handling
+                </h3>
+              </div>
+              <ul
+                style={{
+                  margin: 0,
+                  padding: 0,
+                  listStyle: 'none',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px',
+                }}
+              >
+                <li style={{ fontSize: '16px', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)', lineHeight: '1.6' }}>
+                  <span style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>Data Processing Agreement (DPA)</span> — Ready for legal review
+                </li>
+                <li style={{ fontSize: '16px', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)', lineHeight: '1.6' }}>
+                  <span style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>Hybrid deployment</span> — Your infrastructure, your control
+                </li>
+                <li style={{ fontSize: '16px', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)', lineHeight: '1.6' }}>
+                  <span style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>Full data ownership</span> — Your data stays yours
+                </li>
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ===== SCARCITY BLOCK ===== */}
       <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
         <div className="rv-container-v4">
