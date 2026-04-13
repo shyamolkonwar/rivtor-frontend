@@ -25,7 +25,7 @@ const DEFAULT_FOOTER_GROUPS: FooterGroup[] = [
     title: 'Product',
     links: [
       { label: 'Overview', href: '#product' },
-      { label: 'How It Works', href: '#' },
+      { label: 'How It Works', href: '/how-it-works' },
       { label: 'Use Cases', href: '#' },
       { label: 'Architecture', href: '#' },
     ],
