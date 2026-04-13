@@ -54,7 +54,6 @@ const nextConfig: NextConfig = {
     ],
   },
   transpilePackages: ['motion'],
-  output: 'standalone',
   // Empty turbopack config to support both webpack and turbopack
   turbopack: {},
   webpack: (config, {dev}) => {
