@@ -441,7 +441,7 @@ export default function HowItWorksPage(): JSX.Element {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* Final Statement */}
       <section className="rv-section-v4" style={{ paddingBottom: '120px' }}>
         <div className="rv-container-v4">
           <Reveal>
@@ -449,64 +449,42 @@ export default function HowItWorksPage(): JSX.Element {
               style={{
                 maxWidth: '720px',
                 margin: '0 auto',
-                padding: '48px 32px',
-                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '12px',
                 textAlign: 'center',
               }}
             >
-              <h2
+              <p
                 style={{
                   fontSize: '32px',
                   fontWeight: 600,
                   lineHeight: '1.2',
                   letterSpacing: '-1%',
                   color: 'var(--rv-text-primary)',
-                  marginBottom: '24px',
+                  marginBottom: '16px',
                   marginTop: 0,
                   fontFamily: 'var(--font-headline)',
                 }}
               >
                 You don't run the system.
-              </h2>
+              </p>
               <p
                 style={{
-                  fontSize: '24px',
-                  fontWeight: 500,
-                  lineHeight: '1.3',
-                  color: 'rgba(255, 255, 255, 0.8)',
-                  marginBottom: '32px',
+                  fontSize: '20px',
+                  fontWeight: 400,
+                  lineHeight: '1.4',
+                  color: 'rgba(255, 255, 255, 0.6)',
                   margin: 0,
-                  fontFamily: 'var(--font-headline)',
+                  fontFamily: 'var(--font-body)',
                 }}
               >
                 The system runs the work — for you.
               </p>
-              <Link
-                href="/apply"
-                style={{
-                  display: 'inline-block',
-                  padding: '14px 32px',
-                  background: 'var(--rv-text-primary)',
-                  color: '#000',
-                  textDecoration: 'none',
-                  borderRadius: '6px',
-                  fontSize: '16px',
-                  fontWeight: 500,
-                  fontFamily: 'var(--font-body)',
-                  transition: 'all 150ms ease',
-                }}
-              >
-                Get Started
-              </Link>
             </div>
           </Reveal>
 
           <Reveal delay={0.1}>
             <div
               style={{
-                marginTop: '48px',
+                marginTop: '64px',
                 paddingTop: '32px',
                 borderTop: '1px solid rgba(255, 255, 255, 0.1)',
                 textAlign: 'center',
