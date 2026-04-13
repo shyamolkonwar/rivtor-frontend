@@ -26,17 +26,17 @@ const DEFAULT_FOOTER_GROUPS: FooterGroup[] = [
     links: [
       { label: 'Overview', href: '#product' },
       { label: 'How It Works', href: '/how-it-works' },
-      { label: 'Use Cases', href: '#' },
-      { label: 'Architecture', href: '#' },
+      { label: 'Use Cases', href: '/use-cases' },
+      { label: 'Architecture', href: '/architecture' },
     ],
   },
   {
     title: 'Solutions',
     links: [
-      { label: 'For Startups', href: '#' },
-      { label: 'For Agencies', href: '#' },
-      { label: 'For Operations', href: '#' },
-      { label: 'For Enterprises', href: '#' },
+      { label: 'For Startups', href: '/for-startups' },
+      { label: 'For Agencies', href: '/for-agencies' },
+      { label: 'For Operations', href: '/for-operations' },
+      { label: 'For Enterprises', href: '/for-enterprise' },
     ],
   },
   {
