@@ -5,104 +5,55 @@
  * Provides content for both users and search engines
  *
  * Features:
- * - Accordion-style expandable answers
- * - Smooth animations
+ * - Editorial list-style accordion (no card boxes)
+ * - Mono index numbers, thin horizontal borders
+ * - Smooth height + opacity animations
  * - Semantic HTML for accessibility
  * - Pairs with FAQSchema for full SEO coverage
  */
 
 'use client';
 
-import type { JSX, ReactNode } from 'react';
+import type { JSX } from 'react';
 import { useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 
-interface FAQItem {
+interface FAQItemData {
   question: string;
   answer: string;
 }
 
 interface FAQDisplayProps {
-  questions: FAQItem[];
+  questions: FAQItemData[];
   title?: string;
   subtitle?: string;
-  className?: string;
   maxItems?: number;
-}
-
-type RevealProps = {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-};
-
-function Reveal({ children, className = '', delay = 0 }: RevealProps): JSX.Element {
-  const prefersReducedMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{
-        duration: prefersReducedMotion ? 0 : 0.6,
-        delay: prefersReducedMotion ? 0 : delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-    >
-      {children}
-    </motion.div>
-  );
 }
 
 export default function FAQDisplay({
   questions,
-  title = 'Frequently Asked Questions',
-  subtitle,
-  className = '',
-  maxItems
-}: FAQDisplayProps) {
+  title = 'Questions',
+  subtitle = 'What founders ask before they delegate.',
+  maxItems,
+}: FAQDisplayProps): JSX.Element {
   const displayQuestions = maxItems ? questions.slice(0, maxItems) : questions;
 
   return (
-    <section className={`rv-section-v4 ${className}`}>
-      <div className="rv-container-v4">
-        {/* Section header */}
-        <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <h2
-              className="rv-h2-v4 rv-h2-v4--centered"
-              style={{
-                fontSize: '40px',
-                fontWeight: 600,
-                lineHeight: '1.2',
-                letterSpacing: '-1%',
-                color: 'var(--rv-text-primary)',
-                marginBottom: '16px',
-                fontFamily: 'var(--font-headline)',
-              }}
-            >
-              {title}
-            </h2>
-            {subtitle && (
-              <p
-                style={{
-                  fontSize: '18px',
-                  lineHeight: '28px',
-                  color: 'rgba(255, 255, 255, 0.6)',
-                  margin: 0,
-                  fontFamily: 'var(--font-body)',
-                }}
-              >
-                {subtitle}
-              </p>
-            )}
-          </div>
-        </Reveal>
+    <section className="rv-faq-v4" aria-labelledby="faq-title">
+      {/* Top divider */}
+      <div className="rv-faq-v4__divider" aria-hidden="true" />
 
-        {/* FAQ items */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <div className="rv-container-v4">
+        {/* Header */}
+        <div className="rv-faq-v4__header">
+          <h2 id="faq-title" className="rv-faq-v4__title">
+            {title}
+          </h2>
+          {subtitle && <p className="rv-faq-v4__subtitle">{subtitle}</p>}
+        </div>
+
+        {/* FAQ List */}
+        <div className="rv-faq-v4__list" role="list">
           {displayQuestions.map((faq, index) => (
             <FAQItem key={index} faq={faq} index={index} />
           ))}
@@ -115,15 +66,15 @@ export default function FAQDisplay({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'FAQPage',
-              mainEntity: displayQuestions.map(faq => ({
+              mainEntity: displayQuestions.map((faq) => ({
                 '@type': 'Question',
                 name: faq.question,
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: faq.answer.replace(/<[^>]*>/g, '') // Strip HTML for schema
-                }
-              }))
-            })
+                  text: faq.answer.replace(/<[^>]*>/g, ''),
+                },
+              })),
+            }),
           }}
         />
       </div>
@@ -131,109 +82,76 @@ export default function FAQDisplay({
   );
 }
 
-function FAQItem({ faq, index }: { faq: FAQItem; index: number }) {
+function FAQItem({
+  faq,
+  index,
+}: {
+  faq: FAQItemData;
+  index: number;
+}): JSX.Element {
   const prefersReducedMotion = useReducedMotion();
   const [isOpen, setIsOpen] = useState(false);
+  const num = String(index + 1).padStart(2, '0');
 
   return (
-    <Reveal delay={index * 0.05}>
-      <motion.div
-        style={{
-          background: 'rgba(255, 255, 255, 0.02)',
-          border: '1px solid rgba(255, 255, 255, 0.06)',
-          borderRadius: '12px',
-          overflow: 'hidden',
-        }}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: index * 0.05 }}
+    <div className="rv-faq-v4__item" role="listitem">
+      <button
+        className="rv-faq-v4__trigger"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-controls={`faq-answer-${index}`}
       >
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          style={{
-            width: '100%',
-            padding: '20px 24px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            background: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
-            textAlign: 'left',
-            fontFamily: 'var(--font-body)',
-          }}
-          aria-expanded={isOpen}
+        <span className="rv-faq-v4__index" aria-hidden="true">
+          {num}
+        </span>
+        <span className="rv-faq-v4__question">{faq.question}</span>
+        <motion.span
+          className="rv-faq-v4__chevron"
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.25 }}
+          aria-hidden="true"
         >
-          <span
-            style={{
-              fontSize: '18px',
-              fontWeight: 500,
-              color: 'var(--rv-text-primary)',
-              paddingRight: '16px',
-              letterSpacing: '-0.3%',
-              lineHeight: '1.4',
-            }}
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            {faq.question}
-          </span>
-          <motion.span
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-              color: 'rgba(255, 255, 255, 0.4)',
-            }}
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </motion.span>
-        </button>
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </motion.span>
+      </button>
 
-        <motion.div
-          initial={false}
-          animate={{
-            height: isOpen ? 'auto' : 0,
-            opacity: isOpen ? 1 : 0,
-          }}
-          transition={{
-            duration: prefersReducedMotion ? 0 : 0.3,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          style={{
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            style={{
-              padding: '0 24px 24px 24px',
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            id={`faq-answer-${index}`}
+            className="rv-faq-v4__answer-wrap"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{
+              height: {
+                duration: prefersReducedMotion ? 0 : 0.35,
+                ease: [0.22, 1, 0.36, 1],
+              },
+              opacity: {
+                duration: prefersReducedMotion ? 0 : 0.25,
+                delay: prefersReducedMotion ? 0 : 0.05,
+              },
             }}
           >
             <div
-              style={{
-                fontSize: '16px',
-                lineHeight: '1.6',
-                color: 'rgba(255, 255, 255, 0.7)',
-                fontFamily: 'var(--font-body)',
-              }}
+              className="rv-faq-v4__answer"
               dangerouslySetInnerHTML={{ __html: faq.answer }}
             />
-          </div>
-        </motion.div>
-      </motion.div>
-    </Reveal>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

@@ -84,32 +84,44 @@ export const whyExecutionIntelligenceMatters: WhyImportantContent = {
  * FAQs
  * Used for: FAQ section, FAQPage schema, long-tail keyword targeting
  *
- * Strategic, high-level positioning - focused on execution ownership
+ * Technical positioning — capabilities, reliability, and architecture principles.
  */
 export const rivtorFAQs: FAQItem[] = [
   {
-    question: 'Will I lose control of my company?',
-    answer: 'No. You set every goal. Rivtor reports to you. You approve all major decisions. Rivtor handles execution, not strategy. You remain in control of what matters.'
+    question: 'How does the system ensure execution is reproducible?',
+    answer: 'Every action is recorded as an immutable event in a cryptographically chained log. State is never overwritten; it is reconstructed by replaying events from the beginning of time. This means any execution can be replayed identically, enabling deterministic debugging and full auditability of every decision and action taken.'
   },
   {
-    question: 'What if Rivtor makes mistakes?',
-    answer: 'You review every plan before execution. Rivtor provides transparent progress and observable proof at every step. You can pause, adjust, or redirect at any time.'
+    question: 'How does the multi-agent decision process work?',
+    answer: 'When a complex goal is submitted, the system frames the problem, generates structurally diverse options, and routes them to specialist agents for parallel review. Each agent evaluates feasibility from its domain perspective. An intelligence layer scores options across taste alignment, outcome simulation, and risk assessment. The highest-scoring option is compiled into an execution plan and linked to a dependency-aware task graph.'
   },
   {
-    question: 'How long until I see results?',
-    answer: 'First execution begins within minutes of setting a goal. Unlike traditional projects that take weeks to kick off, Rivtor starts driving work immediately.'
+    question: 'How are tasks scheduled and executed?',
+    answer: 'Tasks are modeled as a directed acyclic graph with explicit dependency edges. The system automatically detects which tasks have satisfied dependencies, groups independent work for parallel execution, and detects cycles before runtime. Each atomic task includes built-in verification and retry logic, ensuring partial failures do not corrupt downstream work.'
   },
   {
-    question: 'Do I need to learn a new tool?',
-    answer: 'No. Rivtor works in Slack, email, and your existing systems. There is nothing new to learn and nothing to migrate.'
+    question: 'How does the system maintain context across long-running workflows?',
+    answer: 'A context manager assembles relevant history using priority scoring and token budgeting. It integrates codebase indexes, prior decision traces, and live system state. Automatic summarization preserves continuity across sessions, enabling multi-hour autonomous execution loops without losing track of intent or repeating work.'
   },
   {
-    question: 'Will my team actually use it?',
-    answer: 'Yes. Rivtor works where your team already works. They do not need to adopt a new tool or change their workflow. Rivtor integrates with the tools they already use.'
+    question: 'What happens when something fails during execution?',
+    answer: 'Failed tasks trigger automatic retry with exponential backoff. If retry fails, the system reassigns the work to a fallback agent and restores state from the last known checkpoint. Because every action is event-sourced, partial executions can be resumed deterministically from the exact point of failure without manual intervention.'
   },
   {
-    question: 'What type of companies do you work with?',
-    answer: 'We work with teams who have urgent execution challenges and the mandate to solve them. Typically: high-growth companies who cannot hire fast enough, operations teams drowning in manual workflows, or technical teams blocked by coordination overhead. The common thread: you are actively building, not exploring, and you need outcomes now—not in six months.'
+    question: 'How is code execution isolated and secured?',
+    answer: 'All code runs inside ephemeral sandboxes— isolated environments with no access to the host system. Each sandbox is created on demand, used for a single execution, and destroyed immediately after. This containment model prevents runtime errors or malicious code from affecting the broader system or leaking data.'
+  },
+  {
+    question: 'How are third-party integrations managed?',
+    answer: 'Connections to external services use standard OAuth flows with encrypted credential storage. Webhook endpoints verify cryptographic signatures from the source provider. A background sync process keeps connected data fresh, and all integration activity is logged to the event stream for audit and replay.'
+  },
+  {
+    question: 'What visibility is available into system behavior?',
+    answer: 'Distributed tracing follows every request from goal ingestion through decision, planning, and execution. Metrics cover latency percentiles, error rates, active agent counts, queue depth, and decision confidence. Structured logs attach component names, event types, and correlation IDs, making it possible to trace any outcome back to its exact origin.'
+  },
+  {
+    question: 'How does the knowledge graph stay current with execution?',
+    answer: 'A background worker continuously projects new events into a live knowledge graph of entities and relationships. Agents query this graph for real-time context instead of relying on static snapshots. This means decisions are always grounded in the current state of the system, not stale data from when the session started.'
   }
 ];
 
