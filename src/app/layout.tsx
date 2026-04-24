@@ -21,21 +21,21 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Rivtor | Set a Goal. Get It Done.',
+    default: 'Rivtor | An Agent That Executes Your Goals',
     template: '%s | Rivtor'
   },
-  description: 'Rivtor turns your goals into finished work across your team and tools—without constant follow-ups. Set a goal. Rivtor plans, drives, and finishes the execution.',
+  description: 'Rivtor is an autonomous agent that reasons about your objectives, plans the work, and drives it to completion across your team and tools. Not a tool. An agent.',
   keywords: [
-    'goal execution',
-    'work completion',
-    'execution ownership',
-    'finish what you start',
-    'execution without follow-ups',
-    'business execution',
-    'operations automation',
-    'team productivity',
-    'goal management',
-    'project completion'
+    'AI agent',
+    'autonomous execution',
+    'goal execution agent',
+    'AI company',
+    'agentic AI',
+    'autonomous agent',
+    'founder productivity',
+    'cognitive offloading',
+    'delegation agent',
+    'startup execution',
   ],
   authors: [{ name: 'Rivtor' }],
   creator: 'Rivtor',
@@ -53,14 +53,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: process.env.NEXT_PUBLIC_APP_URL || 'https://rivtor.com',
-    title: 'Rivtor | Set a Goal. Get It Done.',
-    description: 'Rivtor turns your goals into finished work across your team and tools—without constant follow-ups. No coordination. No overhead. Just completed work.',
+    title: 'Rivtor | An Agent That Executes Your Goals',
+    description: 'Rivtor is an autonomous agent that reasons about your objectives, plans the work, and drives it to completion. Not a tool. An agent.',
     siteName: 'Rivtor',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rivtor | Set a Goal. Get It Done.',
-    description: 'Rivtor turns your goals into finished work across your team and tools—without constant follow-ups. Stop following up. Start setting goals.',
+    title: 'Rivtor | An Agent That Executes Your Goals',
+    description: 'Rivtor is an autonomous agent that reasons about your objectives, plans the work, and drives it to completion. Stop executing. Start delegating to an agent.',
     creator: '@rivtor',
   },
   robots: {
