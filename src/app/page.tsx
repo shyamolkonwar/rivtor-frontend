@@ -1,6 +1,6 @@
 'use client';
 
-import type { JSX, ReactNode } from 'react';
+import type { JSX } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import Navbar from '@/components/landing/Navbar';
@@ -19,32 +19,6 @@ import ProblemSection from '@/components/landing/ProblemSection';
 import { FAQDisplay, HowToSchema } from '@/components/seo';
 import { rivtorHowTo } from '@/data/rivtorGEO';
 import { rivtorFAQs } from '@/data/rivtorSEO';
-
-type RevealProps = {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-};
-
-function Reveal({ children, className = '', delay = 0 }: RevealProps): JSX.Element {
-  const prefersReducedMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{
-        duration: prefersReducedMotion ? 0 : 0.6,
-        delay: prefersReducedMotion ? 0 : delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 export default function Page(): JSX.Element {
   const prefersReducedMotion = useReducedMotion();
@@ -161,16 +135,13 @@ export default function Page(): JSX.Element {
       {/* ===== AUTONOMOUS EXECUTION SECTION ===== */}
       <AutonomousExecutionSection />
 
-      {/* ===== SEO: FAQ SECTION ===== */}
-      <Reveal>
-        <div className="rv-container-v4" style={{ paddingBottom: '80px' }}>
-          <FAQDisplay
-            questions={rivtorFAQs}
-            title="Frequently Asked Questions"
-            maxItems={3}
-          />
-        </div>
-      </Reveal>
+      {/* ===== FAQ SECTION ===== */}
+      <FAQDisplay
+        questions={rivtorFAQs}
+        title="Questions"
+        subtitle="Architecture, execution, and reliability."
+        maxItems={3}
+      />
 
       <Footer />
 
