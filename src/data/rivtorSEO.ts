@@ -32,7 +32,7 @@ export interface WhyImportantContent {
  */
 export const rivtorSEOData: SEOContent = {
   name: 'Rivtor',
-  description: 'Rivtor is execution intelligence — the first autonomous execution system that plans, executes, and iterates on goals autonomously. For founders, startups, and companies who need to execute faster.',
+  description: 'Rivtor turns your goals into finished work across your team and tools—without constant follow-ups. Set a goal. Rivtor plans, drives, and finishes the execution.',
   path: '/'
 };
 
@@ -43,36 +43,36 @@ export const rivtorSEOData: SEOContent = {
 export const rivtorHowToSteps: string[] = [
   'Define your goal in plain language (e.g., "Increase user retention by 30%")',
   'Rivtor analyzes the goal and breaks it down into actionable steps',
-  'Autonomous agents execute each step without human intervention',
-  'Rivtor monitors results and analyzes performance',
-  'Based on outcomes, Rivtor automatically iterates and optimizes',
-  'Achieve your goal without coordination, alignment, or management overhead'
+  'Rivtor plans, assigns, and drives each step to completion',
+  'Rivtor monitors results and tracks progress',
+  'Based on outcomes, Rivtor adjusts and continues until the goal is achieved',
+  'Achieve your goal without follow-ups, status checks, or management overhead'
 ];
 
 /**
- * Why Execution Intelligence Matters
+ * Why Execution Ownership Matters
  * Used for: Educational content section on landing page
  */
 export const whyExecutionIntelligenceMatters: WhyImportantContent = {
-  title: 'Why Execution Intelligence Matters',
+  title: 'Why Execution Ownership Matters',
   content: `
-    <p>Traditional execution is broken. Plans stall, teams misalign, and experiments die in decision queues. The bottleneck is never the idea — it's execution.</p>
+    <p>Traditional execution is broken. Goals stall, teams misalign, and projects die in follow-up queues. The bottleneck is never the idea — it is execution.</p>
 
-    <p>Rivtor introduces a new category: <strong>Execution Intelligence</strong>. Unlike tools that help you work, or AI assistants that make suggestions, Rivtor is an autonomous system that executes.</p>
+    <p>Rivtor fixes this by owning execution end-to-end. Unlike tools that help you work, Rivtor drives the work until it is finished.</p>
 
     <h3>The Execution Problem</h3>
     <ul>
       <li><strong>Coordination overhead:</strong> Teams spend 40% of time on alignment, not execution</li>
-      <li><strong>Decision bottlenecks:</strong> Critical changes wait for approval loops</li>
+      <li><strong>Follow-up gaps:</strong> Tasks get assigned but no one drives them to completion</li>
       <li><strong>Context switching:</strong> Constant interruptions break flow and slow progress</li>
       <li><strong>Scaling friction:</strong> More people = more communication, less execution</li>
     </ul>
 
-    <h3>Why Execution Intelligence Works</h3>
+    <h3>Why Owning Execution Works</h3>
     <ul>
-      <li><strong>Autonomy:</strong> No coordination, alignment meetings, or task assignments</li>
-      <li><strong>Continuity:</strong> Operates 24/7 without breaks, sleep, or weekends</li>
-      <li><strong>Iteration:</strong> Automatically optimizes based on real results</li>
+      <li><strong>Clear ownership:</strong> Someone owns driving every goal to completion</li>
+      <li><strong>Continuity:</strong> Work progresses continuously without waiting for follow-ups</li>
+      <li><strong>Iteration:</strong> Automatically adjusts based on real results</li>
       <li><strong>Scale:</strong> Execute multiple initiatives in parallel without adding headcount</li>
     </ul>
 
@@ -84,20 +84,32 @@ export const whyExecutionIntelligenceMatters: WhyImportantContent = {
  * FAQs
  * Used for: FAQ section, FAQPage schema, long-tail keyword targeting
  *
- * Strategic, high-level positioning - Palantir-level engagement model
+ * Strategic, high-level positioning - focused on execution ownership
  */
 export const rivtorFAQs: FAQItem[] = [
   {
-    question: 'How does the design partner program work?',
-    answer: 'We work with a small group of companies on real execution problems. You bring the challenge — we execute the solution together. This isn\'t a trial or a demo. It\'s a partnership where we build and deploy actual capabilities to solve your problems. Partners get direct access to our team, rapid iteration on real work, and shape how the system develops.'
+    question: 'Will I lose control of my company?',
+    answer: 'No. You set every goal. Rivtor reports to you. You approve all major decisions. Rivtor handles execution, not strategy. You remain in control of what matters.'
+  },
+  {
+    question: 'What if Rivtor makes mistakes?',
+    answer: 'You review every plan before execution. Rivtor provides transparent progress and observable proof at every step. You can pause, adjust, or redirect at any time.'
+  },
+  {
+    question: 'How long until I see results?',
+    answer: 'First execution begins within minutes of setting a goal. Unlike traditional projects that take weeks to kick off, Rivtor starts driving work immediately.'
+  },
+  {
+    question: 'Do I need to learn a new tool?',
+    answer: 'No. Rivtor works in Slack, email, and your existing systems. There is nothing new to learn and nothing to migrate.'
+  },
+  {
+    question: 'Will my team actually use it?',
+    answer: 'Yes. Rivtor works where your team already works. They do not need to adopt a new tool or change their workflow. Rivtor integrates with the tools they already use.'
   },
   {
     question: 'What type of companies do you work with?',
-    answer: 'We work with teams who have urgent execution challenges and the mandate to solve them. Typically: high-growth companies who can\'t hire fast enough, operations teams drowning in manual workflows, or technical teams blocked by coordination overhead. The common thread: you\'re actively building, not exploring, and you need outcomes now — not in six months.'
-  },
-  {
-    question: 'What does the engagement look like?',
-    answer: 'We start by understanding what you\'re trying to achieve and the constraints you\'re operating under. Then we define scope and start executing. You work directly with our team — no account managers, no handoffs. Changes ship in days, not quarters. As we solve your initial challenges, we expand scope and tackle harder problems.'
+    answer: 'We work with teams who have urgent execution challenges and the mandate to solve them. Typically: high-growth companies who cannot hire fast enough, operations teams drowning in manual workflows, or technical teams blocked by coordination overhead. The common thread: you are actively building, not exploring, and you need outcomes now—not in six months.'
   }
 ];
 
@@ -109,17 +121,17 @@ export const rivtorRelatedPages: RelatedPage[] = [
   {
     name: 'Design Partner Program',
     href: '/design-partners',
-    description: 'Join early builders shaping the future of autonomous execution. Get direct access to the Rivtor team and influence product direction.'
+    description: 'Join early builders shaping the future of execution ownership. Get direct access to the Rivtor team and influence product direction.'
   },
   {
     name: 'How It Works',
     href: '#how-it-works',
-    description: 'See how Rivtor transforms goals into executed outcomes through autonomous planning and iteration.'
+    description: 'See how Rivtor transforms goals into finished work through continuous execution and follow-through.'
   },
   {
-    name: 'What is Execution Intelligence?',
-    href: '#execution-intelligence',
-    description: 'Learn about the new category of autonomous systems that plan, execute, and iterate without human coordination.'
+    name: 'What is Execution Ownership?',
+    href: '#execution-ownership',
+    description: 'Learn about the shift from tools that help you work to systems that drive work to completion.'
   }
 ];
 
@@ -129,31 +141,31 @@ export const rivtorRelatedPages: RelatedPage[] = [
  */
 export const rivtorKeywords = {
   primary: [
-    'execution intelligence',
-    'autonomous execution',
+    'execution ownership',
+    'goal completion',
     'Rivtor',
-    'autonomous AI',
-    'AI execution system'
+    'work completion',
+    'execution system'
   ],
   secondary: [
-    'AI agents for business',
-    'agentic systems',
-    'autonomous company',
-    'goal-oriented AI',
-    'AI automation platform',
-    'business execution automation',
-    'autonomous operations',
-    'AI workflow automation'
+    'finish what you start',
+    'execution without follow-ups',
+    'goal-driven execution',
+    'business execution',
+    'operations automation',
+    'workflow completion',
+    'execution management',
+    'team productivity'
   ],
   longTail: [
-    'AI that executes autonomously',
-    'autonomous AI for founders',
+    'how to finish projects faster',
+    'stop chasing status updates',
+    'execution for founders',
+    'goal execution system',
+    'work that gets done',
     'execution without management',
-    'AI that plans and executes',
-    'autonomous business execution',
-    'AI for goal execution',
-    'execution intelligence system',
-    'autonomous AI vs copilot'
+    'finish goals automatically',
+    'execution vs planning'
   ]
 };
 
@@ -177,9 +189,9 @@ export function getFAQsByTopic(topic: string): FAQItem[] {
   const topicLower = topic.toLowerCase();
 
   const topicMap: Record<string, string[]> = {
-    'basics': ['what is execution intelligence', 'what is rivtor', 'who is rivtor for'],
+    'basics': ['what is execution', 'what is rivtor', 'who is rivtor for'],
     'comparison': ['how is rivtor different', 'vs chatgpt', 'vs copilot', 'is rivtor a saas', 'is rivtor an agency'],
-    'technical': ['what kinds of goals', 'how does rivtor iterate', 'how long does', 'does rivtor integrate', 'what happens if'],
+    'technical': ['what kinds of goals', 'how does rivtor work', 'how long does', 'does rivtor integrate', 'what happens if'],
     'getting-started': ['do i need technical', 'how do i get started']
   };
 

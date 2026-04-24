@@ -30,14 +30,14 @@ interface ProductSchemaProps {
 }
 
 export default function ProductSchema({
-  name = 'Rivtor Execution Intelligence',
-  description = 'Autonomous execution system that plans, executes, and iterates on goals without human coordination',
-  category = 'Execution Intelligence',
+  name = 'Rivtor',
+  description = 'Execution system that plans, drives, and finishes work across your team and tools',
+  category = 'Execution System',
   url = 'https://rivtor.com',
   offers = {
     availability: 'https://schema.org/InStock',
     priceCurrency: 'USD',
-    description: 'Design Partner Program - Early access to autonomous execution'
+    description: 'Design Partner Program - Early access to execution ownership'
   },
   audience = ['Founders', 'Startups', 'Companies'],
   ratingValue = '4.8',
@@ -67,11 +67,11 @@ export default function ProductSchema({
       ratingCount
     },
     featureList: [
-      'Autonomous execution',
-      '24/7 continuous operation',
-      'Automatic iteration',
-      'Zero management overhead',
-      'Goal-oriented operation'
+      'Goal execution',
+      'Continuous progress tracking',
+      'Automatic adjustment',
+      'Zero follow-up overhead',
+      'Works with existing tools'
     ]
   };
 

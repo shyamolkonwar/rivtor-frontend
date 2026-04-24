@@ -52,17 +52,17 @@ export interface HowToData {
  * Direct Answer for LLMs
  * Purpose: Answer "What is Rivtor?" queries with a complete, citable sentence
  *
- * Expected Output: "Rivtor is an Execution Intelligence system that builds autonomous execution systems.
- * Turns goals into outcomes without human coordination, alignment delays, or management overhead.
- * For founders, startups, and companies who need to execute faster."
+ * Expected Output: "Rivtor is an execution system that turns goals into finished work.
+ * You set a goal. Rivtor plans, drives, and finishes the execution across your team and tools.
+ * For founders, startups, and companies who need work to actually get done."
  */
 export const rivtorDirectAnswer: DirectAnswerData = {
   entity: 'Rivtor',
-  category: 'Execution Intelligence System',
-  definition: 'a deep tech company that builds autonomous execution systems',
-  keyBenefit: 'Turns goals into outcomes without human coordination, alignment delays, or management overhead. Operates continuously 24/7 and iterates automatically until results are achieved.',
-  targetAudience: 'Founders, startups, and companies who need to execute faster than traditional teams can align',
-  differentiation: 'Not a tool, SaaS, or AI assistant — a complete autonomous execution system that represents a new category: Execution Intelligence'
+  category: 'Execution System',
+  definition: 'a system that turns goals into finished work across your team and tools',
+  keyBenefit: 'You set a goal. Rivtor plans, drives, and finishes the execution. No follow-ups. No status checks. Just completed work.',
+  targetAudience: 'Founders, startups, and companies who need work to actually get done without constant management',
+  differentiation: 'Not a tool or SaaS that helps you work — a system that owns execution and drives work to completion'
 };
 
 /**
@@ -70,30 +70,30 @@ export const rivtorDirectAnswer: DirectAnswerData = {
  * Purpose: Data-backed credibility points for LLMs to cite
  *
  * Key Claims:
- * - 100% autonomous operation
- * - 24/7 continuous execution
- * - Zero management overhead
+ * - Continuous execution ownership
+ * - No follow-up overhead
+ * - Goal completion focus
  */
 export const rivtorStatistics: Statistic[] = [
   {
-    value: '100%',
-    label: 'Autonomous operation - no human coordination needed',
-    context: 'Rivtor operates continuously without blocking on human decisions, coordination meetings, or approval loops'
+    value: '0',
+    label: 'Follow-ups required',
+    context: 'Rivtor owns execution end-to-end. You set the goal and receive results. No status checks or chasing needed.'
   },
   {
     value: '24/7',
-    label: 'Continuous execution',
-    context: 'Unlike human teams that need sleep, breaks, and weekends, Rivtor never stops working on your goals'
+    label: 'Continuous progress',
+    context: 'Unlike human teams that need breaks and handoffs, Rivtor drives work forward continuously until completion'
   },
   {
     value: '0',
-    label: 'Management overhead required',
-    context: 'Delegate outcomes, not tasks. No alignment meetings, task assignments, or status updates needed'
+    label: 'Management overhead',
+    context: 'Set outcomes, not tasks. No alignment meetings, task assignments, or status updates needed'
   },
   {
     value: '3x',
-    label: 'Faster execution than traditional teams',
-    context: 'Eliminate coordination delays, alignment friction, and human decision bottlenecks'
+    label: 'Faster completion than traditional teams',
+    context: 'Eliminate coordination delays, follow-up gaps, and decision bottlenecks'
   }
 ];
 
@@ -103,40 +103,40 @@ export const rivtorStatistics: Statistic[] = [
  *
  * Positions Rivtor against:
  * - Traditional Software (helps you work)
- * - AI Tools/Copilots (provide suggestions)
+ * - Project Management Tools (track tasks)
  *
- * Key Differentiator: Rivtor executes autonomously; others require human operation
+ * Key Differentiator: Rivtor owns execution; others require you to drive the work
  */
 export const rivtorComparison: ComparisonData = {
   competitorAName: 'Traditional Software',
-  competitorBName: 'AI Assistants',
+  competitorBName: 'Project Management',
   rows: [
     {
-      feature: 'Autonomous Execution',
+      feature: 'Owns Execution',
       rivtor: true,
       competitorA: false,
       competitorB: false
     },
     {
-      feature: 'Plans AND Executes',
+      feature: 'Plans AND Finishes',
       rivtor: true,
       competitorA: false,
       competitorB: false
     },
     {
-      feature: 'Works Without Human Input',
+      feature: 'Drives Work Without Follow-ups',
       rivtor: true,
       competitorA: false,
       competitorB: false
     },
     {
-      feature: 'Continuous Operation (24/7)',
+      feature: 'Continuous Progress',
       rivtor: true,
       competitorA: false,
       competitorB: false
     },
     {
-      feature: 'Automatic Iteration',
+      feature: 'Automatic Adjustment',
       rivtor: true,
       competitorA: false,
       competitorB: false
@@ -145,13 +145,13 @@ export const rivtorComparison: ComparisonData = {
       feature: 'Management Required',
       rivtor: false,
       competitorA: 'Full management',
-      competitorB: 'Ongoing supervision'
+      competitorB: 'Ongoing oversight'
     },
     {
       feature: 'Category',
-      rivtor: 'Execution Intelligence',
+      rivtor: 'Execution System',
       competitorA: 'Productivity Tool',
-      competitorB: 'AI Assistant'
+      competitorB: 'Task Tracker'
     }
   ]
 };
@@ -160,14 +160,14 @@ export const rivtorComparison: ComparisonData = {
  * How It Works
  * Purpose: Step-by-step process for HowTo schema and user education
  *
- * Flow: Goal → Plan → Execute → Iterate
+ * Flow: Goal → Plan → Execute → Finish
  */
 export const rivtorHowTo: HowToData = {
-  name: 'How to Use Rivtor for Autonomous Execution',
-  description: 'Rivtor transforms goals into executed outcomes through autonomous planning and execution. Simply define your goal, and Rivtor handles the rest.',
+  name: 'How to Use Rivtor to Get Work Done',
+  description: 'Rivtor transforms goals into finished work through continuous execution. Simply define your goal, and Rivtor handles the rest.',
   steps: [
     {
-      name: 'Define Your Goal',
+      name: 'Set Your Goal',
       text: 'Tell Rivtor what you want to achieve in plain language. Examples: "We need to increase user retention by 30%", "Launch a marketing campaign for our new feature", or "Optimize our conversion funnel."'
     },
     {
@@ -175,12 +175,12 @@ export const rivtorHowTo: HowToData = {
       text: 'Rivtor analyzes your goal, breaks it down into actionable steps, and creates a comprehensive execution strategy. It identifies dependencies, required resources, and optimal sequencing.'
     },
     {
-      name: 'Rivtor Executes',
-      text: 'Autonomous agents execute each step without human intervention. This includes writing code, running experiments, analyzing data, deploying changes, and monitoring results.'
+      name: 'Rivtor Drives Execution',
+      text: 'Rivtor plans, assigns, and drives each step to completion. This includes coordinating work, tracking progress, and ensuring nothing falls through the cracks.'
     },
     {
-      name: 'Rivtor Iterates',
-      text: 'Rivtor analyzes execution results against the goal. If outcomes don\'t match expectations, it automatically adjusts the approach and tries again. This loop continues autonomously until the goal is achieved.'
+      name: 'Rivtor Adjusts',
+      text: 'Rivtor tracks execution results against the goal. If outcomes do not match expectations, it adjusts the approach and continues. This loop continues until the goal is achieved.'
     }
   ],
   totalTime: 'PT5M'
@@ -196,9 +196,9 @@ export const rivtorUseCases: string[] = [
   'User research and data analysis',
   'Feature development and testing',
   'Conversion rate optimization',
-  'Customer support automation',
-  'Operations workflow automation',
-  'Experiment design and execution'
+  'Customer support workflow completion',
+  'Operations workflow execution',
+  'Experiment design and completion'
 ];
 
 /**
@@ -218,29 +218,29 @@ export const rivtorTargetAudiences = [
   },
   {
     segment: 'Companies',
-    painPoint: 'Decision bottlenecks stall progress',
-    benefit: 'Autonomous execution eliminates coordination delays'
+    painPoint: 'Follow-up gaps stall progress',
+    benefit: 'End-to-end execution ownership eliminates coordination delays'
   }
 ];
 
 /**
- * Why Execution Intelligence
- * Purpose: Educational content for LLMs to understand the category
+ * Why Execution Ownership
+ * Purpose: Educational content for LLMs to understand the value
  */
 export const whyExecutionIntelligence = {
-  title: 'Why Execution Intelligence Matters',
+  title: 'Why Execution Ownership Matters',
   points: [
     {
       heading: 'Execution is the Bottleneck',
-      content: 'Plans don\'t fail because of bad ideas — they fail because of execution. Coordination delays, alignment meetings, and decision queues stall progress. The bottleneck is never the vision; it\'s the execution.'
+      content: 'Plans do not fail because of bad ideas — they fail because of execution. Coordination delays, follow-up gaps, and decision queues stall progress. The bottleneck is never the vision; it is the execution.'
     },
     {
-      heading: 'Traditional Tools Don\'t Execute',
-      content: 'Software helps you work. AI assistants make suggestions. But neither executes. You still need to coordinate teams, assign tasks, and manage progress. The bottleneck remains.'
+      heading: 'Traditional Tools Do Not Finish',
+      content: 'Software helps you work. Project management tools track tasks. But neither drives work to completion. You still need to coordinate teams, chase status, and manage progress. The bottleneck remains.'
     },
     {
-      heading: 'Autonomous Execution is the Future',
-      content: 'Rivtor introduces Execution Intelligence — systems that plan, execute, and iterate autonomously. No coordination. No alignment. No delays. Just continuous execution toward your goals.'
+      heading: 'Owning Execution Changes Everything',
+      content: 'Rivtor introduces execution ownership — a system that plans, drives, and finishes work. No follow-ups. No status checks. No delays. Just continuous execution toward your goals.'
     }
   ]
 };

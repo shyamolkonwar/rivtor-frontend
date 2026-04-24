@@ -29,7 +29,7 @@ interface OrganizationSchemaProps {
 
 export default function OrganizationSchema({
   name = 'Rivtor',
-  description = 'Execution Intelligence — autonomous execution systems that build companies',
+  description = 'Rivtor turns goals into finished work across teams and tools—without constant follow-ups.',
   url = 'https://rivtor.com',
   logo = 'https://rivtor.com/logo.png',
   sameAs = [
@@ -59,12 +59,12 @@ export default function OrganizationSchema({
       }
     }),
     knowsAbout: [
-      'Execution Intelligence',
-      'Autonomous Agents',
-      'Agentic Systems',
-      'AI Execution',
-      'Autonomous Business',
-      'Goal-Oriented AI'
+      'Execution Ownership',
+      'Goal Completion',
+      'Work Management',
+      'Business Execution',
+      'Team Productivity',
+      'Operations Automation'
     ]
   };
 
