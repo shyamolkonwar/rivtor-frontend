@@ -398,11 +398,15 @@ body {
 @media (max-width: 640px) {
   .rv-hero-v4__actions {
     flex-direction: column;
+    align-items: center;
     width: 100%;
   }
 
   .rv-btn-v4 {
     width: 100%;
+    max-width: 280px;
+    height: 44px;
+    font-size: 14px;
   }
 }
 
@@ -421,7 +425,13 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  min-height: 420px;
+  min-height: 280px;
+}
+
+@media (min-width: 768px) {
+  .rv-canvas {
+    min-height: 420px;
+  }
 }
 
 /* ============================================
@@ -1380,6 +1390,32 @@ body {
 }
 
 /* ============================================
+    CATEGORY COMPARISON (Software -> Tools -> Rivtor)
+    ============================================ */
+
+.rv-category-comparison {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.rv-category-comparison-item {
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 0;
+}
+
+@media (min-width: 768px) {
+  .rv-category-comparison {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+/* ============================================
     CATEGORY SECTION (3-PANEL DOMINANCE)
     ============================================ */
 
@@ -1523,6 +1559,39 @@ body {
   color: rgba(255, 255, 255, 0.5);
   font-family: var(--font-body);
   font-style: italic;
+}
+
+/* ============================================
+    FUTURE COMPARISON (Before/After Cards)
+    ============================================ */
+
+.rv-future-comparison {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .rv-future-comparison {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+.rv-future-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .rv-future-comparison-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
 }
 
 /* ============================================
@@ -1729,6 +1798,25 @@ body {
 @media (max-width: 768px) {
   .rv-future-transition {
     display: none;
+  }
+}
+
+/* ============================================
+    EXECUTION COMPARISON (Before/After Cards)
+    ============================================ */
+
+.rv-execution-comparison {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .rv-execution-comparison {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 4vw, 48px);
   }
 }
 

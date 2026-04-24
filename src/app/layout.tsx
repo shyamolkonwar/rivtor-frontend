@@ -21,21 +21,21 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Rivtor | Execution Intelligence - Autonomous Execution System',
+    default: 'Rivtor | Set a Goal. Get It Done.',
     template: '%s | Rivtor'
   },
-  description: 'Rivtor is execution intelligence. Give it a goal — it plans, executes, and iterates autonomously. For founders who need to ship faster without team overhead.',
+  description: 'Rivtor turns your goals into finished work across your team and tools—without constant follow-ups. Set a goal. Rivtor plans, drives, and finishes the execution.',
   keywords: [
-    'execution intelligence',
-    'autonomous execution',
-    'AI agents for business',
-    'agentic systems',
-    'autonomous company',
-    'AI execution platform',
-    'goal-oriented AI',
-    'autonomous operations',
-    'AI automation',
-    'business automation'
+    'goal execution',
+    'work completion',
+    'execution ownership',
+    'finish what you start',
+    'execution without follow-ups',
+    'business execution',
+    'operations automation',
+    'team productivity',
+    'goal management',
+    'project completion'
   ],
   authors: [{ name: 'Rivtor' }],
   creator: 'Rivtor',
@@ -53,14 +53,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: process.env.NEXT_PUBLIC_APP_URL || 'https://rivtor.com',
-    title: 'Rivtor | Execution Intelligence - Stop Managing, Start Delegating Outcomes',
-    description: 'The first autonomous execution system. Give Rivtor a goal — it plans, executes, and iterates until results are achieved. No coordination. No overhead.',
+    title: 'Rivtor | Set a Goal. Get It Done.',
+    description: 'Rivtor turns your goals into finished work across your team and tools—without constant follow-ups. No coordination. No overhead. Just completed work.',
     siteName: 'Rivtor',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rivtor | Execution Intelligence - Autonomous Execution System',
-    description: 'Give Rivtor a goal — it plans, executes, and iterates autonomously. Stop managing execution. Start delegating outcomes.',
+    title: 'Rivtor | Set a Goal. Get It Done.',
+    description: 'Rivtor turns your goals into finished work across your team and tools—without constant follow-ups. Stop following up. Start setting goals.',
     creator: '@rivtor',
   },
   robots: {

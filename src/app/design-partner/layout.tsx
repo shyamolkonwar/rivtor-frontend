@@ -1,16 +1,15 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Design Partner Program | Rivtor - Shape Autonomous Execution',
-  description: 'Join Rivtor\'s Design Partner Program. Get early access to Execution Intelligence, direct collaboration with the team, and help build the first autonomous execution system.',
+  title: 'Design Partner Program | Rivtor',
+  description: 'Join Rivtor\'s Design Partner Program. Get early access, direct collaboration with the team, and help build the execution system that gets work done.',
   keywords: [
     'design partner program',
-    'execution intelligence',
-    'autonomous execution',
-    'AI for startups',
-    'early access AI',
+    'execution ownership',
+    'goal completion',
+    'early access',
     'build with Rivtor',
-    'AI execution system',
+    'execution system',
     'startup partnership'
   ],
   openGraph: {
@@ -19,14 +18,14 @@ export const metadata: Metadata = {
     url: process.env.NEXT_PUBLIC_APP_URL
       ? `${process.env.NEXT_PUBLIC_APP_URL}/design-partner`
       : 'https://rivtor.com/design-partner',
-    title: 'Design Partner Program | Rivtor - Shape Autonomous Execution',
-    description: 'Join a select group of startups building the first autonomous execution system. Get direct access to the Rivtor team and shape the future of Execution Intelligence.',
+    title: 'Design Partner Program | Rivtor',
+    description: 'Join a select group of startups building the execution system that gets work done. Get direct access to the Rivtor team and shape the future of goal completion.',
     siteName: 'Rivtor',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Design Partner Program | Rivtor - Shape Autonomous Execution',
-    description: 'Build with Rivtor. Join our Design Partner Program for early access to autonomous execution and direct collaboration with our team.',
+    title: 'Design Partner Program | Rivtor',
+    description: 'Build with Rivtor. Join our Design Partner Program for early access and direct collaboration with our team.',
     creator: '@rivtor',
   },
   alternates: {
