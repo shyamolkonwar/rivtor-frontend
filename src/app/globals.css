@@ -192,7 +192,7 @@ body {
 }
 
 /* ============================================
-   NAVBAR
+   NAVBAR v4 — Scroll-aware, full-screen mobile
    ============================================ */
 
 .rv-nav-v4 {
@@ -200,11 +200,11 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 50;
+  z-index: 100;
   height: 72px;
-  background: rgba(10, 10, 10, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--rv-border-soft);
 }
 
@@ -220,7 +220,7 @@ body {
 
 @media (min-width: 768px) {
   .rv-nav__inner {
-    padding: 0 var(--rv-space-80);
+    padding: 0 var(--rv-space-48);
   }
 }
 
@@ -233,6 +233,7 @@ body {
   font-family: var(--font-headline);
 }
 
+/* Desktop links */
 .rv-nav-links-v4 {
   display: none;
   gap: var(--rv-space-32);
@@ -247,13 +248,119 @@ body {
 
 .rv-nav-link-v4 {
   font-size: 14px;
-  color: var(--rv-text-secondary);
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   transition: color 150ms ease;
+  font-family: var(--font-body);
 }
 
 .rv-nav-link-v4:hover {
   color: var(--rv-text-primary);
+}
+
+/* Right-side actions */
+.rv-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--rv-space-12);
+}
+
+.rv-nav-cta {
+  height: 36px;
+  padding: 0 16px;
+  font-size: 13px;
+}
+
+/* Mobile: always show CTA, hide on larger screens if needed */
+@media (min-width: 768px) {
+  .rv-nav-cta {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================
+   MOBILE OVERLAY — Full-screen
+   ============================================ */
+
+.rv-mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 200;
+  background: rgba(10, 10, 10, 0.98);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 96px var(--rv-space-24) var(--rv-space-48);
+}
+
+.rv-mobile-overlay__content {
+  width: 100%;
+  max-width: 400px;
+}
+
+.rv-mobile-overlay__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rv-space-8);
+}
+
+.rv-mobile-overlay__link {
+  font-family: var(--font-headline);
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--rv-text-primary);
+  text-decoration: none;
+  padding: var(--rv-space-12) 0;
+  transition: opacity 150ms ease;
+  opacity: 0.85;
+}
+
+.rv-mobile-overlay__link:hover {
+  opacity: 1;
+}
+
+.rv-menu-toggle {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--rv-radius-sm);
+  border: 1px solid var(--rv-border-soft);
+  background: transparent;
+  color: var(--rv-text-primary);
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.rv-menu-toggle:hover {
+  background: var(--rv-surface-1);
+  border-color: var(--rv-border-strong);
+}
+
+/* Hide mobile toggle on desktop */
+@media (min-width: 768px) {
+  .rv-menu-toggle {
+    display: none;
+  }
+}
+
+/* Ensure CTA stays visible on mobile */
+@media (max-width: 767px) {
+  .rv-nav-cta {
+    display: inline-flex;
+  }
 }
 
 /* ============================================
@@ -1690,77 +1797,7 @@ body {
   }
 }
 
-/* ============================================
-   MOBILE NAVIGATION
-   ============================================ */
 
-.rv-menu-toggle {
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--rv-radius-sm);
-  border: 1px solid var(--rv-border-soft);
-  background: transparent;
-  color: var(--rv-text-primary);
-  cursor: pointer;
-  transition: all 150ms ease;
-}
-
-.rv-menu-toggle:hover {
-  background: var(--rv-surface-1);
-  border-color: var(--rv-border-strong);
-}
-
-.rv-mobile-nav {
-  position: absolute;
-  top: 72px;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  border-top: 1px solid var(--rv-border-soft);
-  border-bottom: 1px solid var(--rv-border-soft);
-  background: var(--rv-bg-primary);
-  padding: var(--rv-space-16) var(--rv-space-24) var(--rv-space-24);
-  display: flex;
-  flex-direction: column;
-  gap: var(--rv-space-12);
-  font-family: var(--font-body);
-}
-
-.rv-mobile-nav-link {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  color: var(--rv-text-primary);
-  text-decoration: none;
-  font-weight: 500;
-  border-radius: var(--rv-radius-sm);
-  padding: 0 var(--rv-space-12);
-  border: 1px solid transparent;
-  transition: all 150ms ease;
-}
-
-.rv-mobile-nav-link:hover {
-  border-color: var(--rv-border-soft);
-  background: var(--rv-surface-1);
-}
-
-.rv-mobile-cta {
-  justify-content: center;
-  margin-top: var(--rv-space-8);
-}
-
-@media (min-width: 768px) {
-  .rv-menu-toggle {
-    display: none;
-  }
-
-  .rv-mobile-nav {
-    display: none;
-  }
-}
 
 /* ============================================
     EXECUTION END-TO-END SECTION
