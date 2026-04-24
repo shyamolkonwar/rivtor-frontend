@@ -1,299 +1,44 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { useState } from 'react';
 import type { JSX } from 'react';
-
-/* ------------------------------------------------------------------ */
-/*  Types                                                              */
-/* ------------------------------------------------------------------ */
-
-type Step = {
-  number: string;
-  title: string;
-  description: string;
-};
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
 /* ------------------------------------------------------------------ */
 
-const STEPS: Step[] = [
+const STEPS = [
   {
     number: '01',
-    title: 'Set a goal',
-    description: 'Describe what you want to achieve.',
+    title: 'Perceive',
+    description: 'Ingest events from every company system in real-time.',
   },
   {
     number: '02',
-    title: 'Rivtor owns it',
-    description: 'Plans, assigns, and drives the work forward.',
+    title: 'Model',
+    description: 'Build a predictive world model from current state.',
   },
   {
     number: '03',
-    title: 'Work gets done',
-    description: 'Results arrive. No follow-ups needed.',
+    title: 'Decide',
+    description: 'Generate options, simulate futures, select the optimal path.',
+  },
+  {
+    number: '04',
+    title: 'Plan',
+    description: 'Compile decisions into dependency-aware execution graphs.',
+  },
+  {
+    number: '05',
+    title: 'Act',
+    description: 'Dispatch tasks to agents, invoke tools, drive to completion.',
+  },
+  {
+    number: '06',
+    title: 'Learn',
+    description: 'Observe outcomes, assign credit, update predictions.',
   },
 ];
-
-/* ------------------------------------------------------------------ */
-/*  Components                                                         */
-/* ------------------------------------------------------------------ */
-
-function TimelineConnector({
-  index,
-  isActive,
-}: {
-  index: number;
-  isActive: boolean;
-}): JSX.Element {
-  const prefersReducedMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      initial={{ scaleX: 0 }}
-      whileInView={{ scaleX: 1 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{
-        duration: prefersReducedMotion ? 0 : 0.6,
-        delay: prefersReducedMotion ? 0 : 0.3 + index * 0.15,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      style={{
-        flex: 1,
-        height: '1px',
-        background: isActive
-          ? 'linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08))'
-          : 'linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04))',
-        transformOrigin: 'left',
-        position: 'relative',
-        marginTop: '28px',
-      }}
-    >
-      {isActive && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 + index * 0.15, duration: 0.3 }}
-          style={{
-            position: 'absolute',
-            right: '-3px',
-            top: '-3px',
-            width: '7px',
-            height: '7px',
-            borderRadius: '50%',
-            background: 'rgba(255, 255, 255, 0.2)',
-          }}
-        />
-      )}
-    </motion.div>
-  );
-}
-
-function StepNode({
-  step,
-  index,
-  isHovered,
-  onHover,
-}: {
-  step: Step;
-  index: number;
-  isHovered: boolean;
-  onHover: (idx: number | null) => void;
-}): JSX.Element {
-  const prefersReducedMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{
-        duration: prefersReducedMotion ? 0 : 0.6,
-        delay: prefersReducedMotion ? 0 : index * 0.15,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      onMouseEnter={() => onHover(index)}
-      onMouseLeave={() => onHover(null)}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '20px',
-        flex: '0 0 auto',
-        cursor: 'default',
-      }}
-    >
-      {/* Number Circle */}
-      <motion.div
-        animate={{
-          scale: isHovered ? 1.08 : 1,
-          borderColor: isHovered
-            ? 'rgba(255, 255, 255, 0.25)'
-            : 'rgba(255, 255, 255, 0.1)',
-          backgroundColor: isHovered
-            ? 'rgba(255, 255, 255, 0.08)'
-            : 'rgba(255, 255, 255, 0.03)',
-        }}
-        transition={{ duration: 0.2, ease: 'easeOut' }}
-        style={{
-          width: '56px',
-          height: '56px',
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          background: 'rgba(255, 255, 255, 0.03)',
-          fontSize: '18px',
-          fontWeight: 700,
-          color: isHovered ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
-          fontFamily: 'var(--font-headline)',
-          letterSpacing: '-0.02em',
-          flexShrink: 0,
-        }}
-      >
-        {step.number}
-      </motion.div>
-
-      {/* Text */}
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '8px',
-          maxWidth: '220px',
-          textAlign: 'center',
-        }}
-      >
-        <h3
-          style={{
-            fontSize: '18px',
-            fontWeight: 600,
-            color: isHovered ? '#FFFFFF' : 'rgba(255, 255, 255, 0.85)',
-            margin: 0,
-            fontFamily: 'var(--font-headline)',
-            letterSpacing: '-0.01em',
-            transition: 'color 0.2s ease',
-          }}
-        >
-          {step.title}
-        </h3>
-        <p
-          style={{
-            fontSize: '15px',
-            fontWeight: 400,
-            color: isHovered
-              ? 'rgba(255, 255, 255, 0.6)'
-              : 'rgba(255, 255, 255, 0.4)',
-            margin: 0,
-            lineHeight: 1.5,
-            fontFamily: 'var(--font-body)',
-            transition: 'color 0.2s ease',
-          }}
-        >
-          {step.description}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
-
-function MobileStep({
-  step,
-  index,
-  isHovered,
-  onHover,
-}: {
-  step: Step;
-  index: number;
-  isHovered: boolean;
-  onHover: (idx: number | null) => void;
-}): JSX.Element {
-  const prefersReducedMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: prefersReducedMotion ? 0 : -16 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{
-        duration: prefersReducedMotion ? 0 : 0.5,
-        delay: prefersReducedMotion ? 0 : index * 0.12,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      onMouseEnter={() => onHover(index)}
-      onMouseLeave={() => onHover(null)}
-      style={{
-        display: 'flex',
-        alignItems: 'flex-start',
-        gap: '16px',
-        padding: '20px',
-        borderRadius: '12px',
-        border: isHovered
-          ? '1px solid rgba(255, 255, 255, 0.12)'
-          : '1px solid rgba(255, 255, 255, 0.06)',
-        background: isHovered
-          ? 'rgba(255, 255, 255, 0.03)'
-          : 'rgba(255, 255, 255, 0.01)',
-        transition: 'all 0.2s ease',
-      }}
-    >
-      {/* Number */}
-      <div
-        style={{
-          width: '40px',
-          height: '40px',
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          background: 'rgba(255, 255, 255, 0.03)',
-          fontSize: '14px',
-          fontWeight: 700,
-          color: isHovered ? '#FFFFFF' : 'rgba(255, 255, 255, 0.5)',
-          fontFamily: 'var(--font-headline)',
-          flexShrink: 0,
-          transition: 'all 0.2s ease',
-        }}
-      >
-        {step.number}
-      </div>
-
-      {/* Text */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-        <h3
-          style={{
-            fontSize: '16px',
-            fontWeight: 600,
-            color: isHovered ? '#FFFFFF' : 'rgba(255, 255, 255, 0.85)',
-            margin: 0,
-            fontFamily: 'var(--font-headline)',
-            letterSpacing: '-0.01em',
-            transition: 'color 0.2s ease',
-          }}
-        >
-          {step.title}
-        </h3>
-        <p
-          style={{
-            fontSize: '14px',
-            fontWeight: 400,
-            color: 'rgba(255, 255, 255, 0.45)',
-            margin: 0,
-            lineHeight: 1.5,
-            fontFamily: 'var(--font-body)',
-          }}
-        >
-          {step.description}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /*  Main Section                                                       */
@@ -301,38 +46,36 @@ function MobileStep({
 
 export default function HowItWorksSection(): JSX.Element {
   const prefersReducedMotion = useReducedMotion();
-  const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
   return (
     <section
       id="how-it-works"
-      className="rv-section-v4 rv-section-v4--centered"
+      className="relative overflow-hidden"
       aria-labelledby="how-it-works-title"
       style={{
-        paddingTop: 'clamp(80px, 10vw, 120px)',
-        paddingBottom: 'clamp(80px, 10vw, 120px)',
+        paddingTop: 'clamp(80px, 10vw, 140px)',
+        paddingBottom: 'clamp(80px, 10vw, 140px)',
       }}
     >
-      <div className="rv-container-v4">
+      <div className="rv-container-v4 relative" style={{ zIndex: 2 }}>
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
+          initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{
-            duration: prefersReducedMotion ? 0 : 0.6,
+            duration: prefersReducedMotion ? 0 : 0.7,
             ease: [0.22, 1, 0.36, 1],
           }}
-          style={{ textAlign: 'center', marginBottom: '64px' }}
+          className="text-center mb-16 md:mb-24"
         >
           <h2
             id="how-it-works-title"
+            className="font-semibold text-white"
             style={{
-              fontSize: 'clamp(28px, 3.5vw, 36px)',
-              fontWeight: 600,
-              letterSpacing: '-0.01em',
-              lineHeight: 1.2,
-              color: '#FFFFFF',
+              fontSize: 'clamp(32px, 4vw, 48px)',
+              letterSpacing: '-0.02em',
+              lineHeight: 1.1,
               margin: '0 0 16px 0',
               fontFamily: 'var(--font-headline)',
             }}
@@ -340,68 +83,218 @@ export default function HowItWorksSection(): JSX.Element {
             How it works
           </h2>
           <p
+            className="font-normal"
             style={{
               fontSize: 'clamp(16px, 1.8vw, 18px)',
-              fontWeight: 400,
-              color: 'rgba(255, 255, 255, 0.5)',
-              margin: 0,
+              color: 'rgba(255,255,255,0.45)',
+              maxWidth: '520px',
+              margin: '0 auto',
               lineHeight: 1.5,
               fontFamily: 'var(--font-body)',
             }}
           >
-            Three steps. No learning curve. No setup.
+            Six steps. One closed loop. The agent improves with every iteration.
           </p>
         </motion.div>
 
-        {/* Desktop: Horizontal Timeline */}
-        <div
-          className="hidden md:flex"
-          style={{
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            gap: '0',
-            maxWidth: '800px',
-            margin: '0 auto',
-          }}
-        >
+        {/* Desktop: 3-column grid with connecting spine */}
+        <div className="hidden lg:block relative">
+          {/* Horizontal spine */}
+          <div
+            className="absolute left-0 right-0 pointer-events-none"
+            style={{
+              top: '36px',
+              height: '1px',
+              background: 'linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.1), rgba(255,255,255,0.04))',
+            }}
+          />
+
+          <div className="grid grid-cols-3 gap-x-8 gap-y-16 relative" style={{ zIndex: 2 }}>
+            {STEPS.map((step, index) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: prefersReducedMotion ? 0 : 0.6,
+                  delay: prefersReducedMotion ? 0 : (index % 3) * 0.1,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="flex flex-col items-start gap-4"
+              >
+                {/* Number on spine */}
+                <div className="relative w-full">
+                  <span
+                    className="font-mono font-bold"
+                    style={{
+                      fontSize: '13px',
+                      color: 'rgba(255,255,255,0.25)',
+                      fontFamily: 'var(--font-mono)',
+                      letterSpacing: '-0.01em',
+                    }}
+                  >
+                    {step.number}
+                  </span>
+                  {/* Dot on spine */}
+                  <div
+                    className="absolute"
+                    style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: 'rgba(255,255,255,0.15)',
+                      top: '22px',
+                      left: '3px',
+                    }}
+                  />
+                </div>
+
+                {/* Title */}
+                <h3
+                  className="text-lg font-semibold"
+                  style={{
+                    color: '#FFFFFF',
+                    fontFamily: 'var(--font-headline)',
+                    letterSpacing: '-0.01em',
+                    margin: 0,
+                    marginTop: '4px',
+                  }}
+                >
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{
+                    color: 'rgba(255,255,255,0.4)',
+                    fontFamily: 'var(--font-body)',
+                    margin: 0,
+                    maxWidth: '280px',
+                  }}
+                >
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: Vertical list with spine */}
+        <div className="lg:hidden relative flex flex-col gap-0" style={{ paddingLeft: '28px' }}>
+          {/* Vertical spine */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              left: '8px',
+              top: '0',
+              bottom: '0',
+              width: '1px',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))',
+            }}
+          />
+
           {STEPS.map((step, index) => (
-            <div key={step.number} style={{ display: 'flex', alignItems: 'flex-start', flex: index < STEPS.length - 1 ? '1 1 0' : '0 0 auto' }}>
-              <StepNode
-                step={step}
-                index={index}
-                isHovered={hoveredStep === index}
-                onHover={setHoveredStep}
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0, x: prefersReducedMotion ? 0 : -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{
+                duration: prefersReducedMotion ? 0 : 0.5,
+                delay: prefersReducedMotion ? 0 : index * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="relative flex flex-col gap-2"
+              style={{ paddingBottom: index === STEPS.length - 1 ? '0' : '40px' }}
+            >
+              {/* Dot on spine */}
+              <div
+                className="absolute"
+                style={{
+                  width: '7px',
+                  height: '7px',
+                  borderRadius: '50%',
+                  background: 'rgba(255,255,255,0.15)',
+                  left: '-24px',
+                  top: '6px',
+                }}
               />
-              {index < STEPS.length - 1 && (
-                <TimelineConnector
-                  index={index}
-                  isActive={hoveredStep === index || hoveredStep === index + 1}
-                />
-              )}
-            </div>
+
+              {/* Number + Title */}
+              <div className="flex items-baseline gap-3">
+                <span
+                  className="font-mono font-bold"
+                  style={{
+                    fontSize: '11px',
+                    color: 'rgba(255,255,255,0.25)',
+                    fontFamily: 'var(--font-mono)',
+                  }}
+                >
+                  {step.number}
+                </span>
+                <h3
+                  className="text-base font-semibold"
+                  style={{
+                    color: '#FFFFFF',
+                    fontFamily: 'var(--font-headline)',
+                    letterSpacing: '-0.01em',
+                    margin: 0,
+                  }}
+                >
+                  {step.title}
+                </h3>
+              </div>
+
+              {/* Description */}
+              <p
+                className="text-sm"
+                style={{
+                  color: 'rgba(255,255,255,0.45)',
+                  fontFamily: 'var(--font-body)',
+                  lineHeight: 1.5,
+                  margin: 0,
+                }}
+              >
+                {step.description}
+              </p>
+            </motion.div>
           ))}
         </div>
 
-        {/* Mobile: Vertical Cards */}
-        <div
-          className="flex md:hidden"
-          style={{
-            flexDirection: 'column',
-            gap: '12px',
-            maxWidth: '400px',
-            margin: '0 auto',
+        {/* Bottom closing line */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{
+            duration: prefersReducedMotion ? 0 : 0.6,
+            delay: 0.3,
+            ease: [0.22, 1, 0.36, 1],
           }}
+          className="mt-20 md:mt-28 flex justify-center"
         >
-          {STEPS.map((step, index) => (
-            <MobileStep
-              key={step.number}
-              step={step}
-              index={index}
-              isHovered={hoveredStep === index}
-              onHover={setHoveredStep}
-            />
-          ))}
-        </div>
+          <div
+            className="flex items-center gap-3 px-5 py-2.5 rounded-full"
+            style={{
+              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(255,255,255,0.02)',
+            }}
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+            <span
+              className="font-mono text-xs"
+              style={{
+                color: 'rgba(255,255,255,0.4)',
+                fontFamily: 'var(--font-mono)',
+                letterSpacing: '0.01em',
+              }}
+            >
+              Each loop makes the next one smarter
+            </span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
