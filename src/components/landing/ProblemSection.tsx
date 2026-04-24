@@ -66,8 +66,7 @@ export default function ProblemSection(): JSX.Element {
             duration: prefersReducedMotion ? 0 : 0.7,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="mb-16 md:mb-24 text-center lg:text-left mx-auto lg:mx-0"
-          style={{ maxWidth: '100%', lg: { maxWidth: 'none' } }}
+          className="mb-16 md:mb-24 text-center lg:text-left mx-auto lg:mx-0 lg:max-w-none"
         >
           <h2
             id="problem-title"
