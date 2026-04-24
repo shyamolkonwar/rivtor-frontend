@@ -74,7 +74,7 @@ const DEFAULT_LEGAL_LINKS: FooterLink[] = [
 export default function Footer({
   footerGroups = DEFAULT_FOOTER_GROUPS,
   bottomText = '',
-  tagline = 'Execution, without coordination.',
+  tagline = 'Work that gets finished.',
   legalLinks = DEFAULT_LEGAL_LINKS,
 }: FooterProps): JSX.Element {
   return (

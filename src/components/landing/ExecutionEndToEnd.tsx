@@ -30,23 +30,18 @@ function Reveal({ children, delay = 0 }: RevealProps): JSX.Element {
 const EXECUTION_BLOCKS = [
   {
     number: '01',
-    title: 'Define the goal',
-    description: 'You describe what you want to achieve.',
+    title: 'Set a goal',
+    description: 'Describe what you want to achieve.',
   },
   {
     number: '02',
-    title: 'Rivtor plans',
-    description: 'Breaks down strategy and priorities.',
+    title: 'Rivtor owns it',
+    description: 'Plans, assigns, and drives the work forward.',
   },
   {
     number: '03',
-    title: 'Rivtor executes',
-    description: 'Runs experiments, integrates with tools, ships changes.',
-  },
-  {
-    number: '04',
-    title: 'Rivtor iterates',
-    description: 'Tracks results, adapts strategy, improves continuously.',
+    title: 'Work gets done',
+    description: 'Results arrive. No follow-ups needed.',
   },
 ];
 
@@ -59,10 +54,10 @@ export default function ExecutionEndToEnd(): JSX.Element {
           <Reveal>
             <div className="rv-execution-e2e-left">
               <h2 id="execution-e2e-title" className="rv-execution-e2e-headline">
-                Execution, end-to-end.
+                From goal to finished work.
               </h2>
               <p className="rv-execution-e2e-subtext">
-                From goal to results, Rivtor handles the entire cycle.
+                You set the direction. Rivtor handles the execution.
               </p>
             </div>
           </Reveal>

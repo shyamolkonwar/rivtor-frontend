@@ -148,7 +148,7 @@ export default function ExecutionAnimation() {
       <canvas
         ref={canvasRef}
         className="rv-canvas"
-        style={{ width: '100%', height: '100%', minHeight: '420px' }}
+        style={{ width: '100%', height: '100%' }}
       />
     </motion.div>
   );

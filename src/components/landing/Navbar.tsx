@@ -26,8 +26,8 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
 
 export default function Navbar({
   navItems = DEFAULT_NAV_ITEMS,
-  ctaText = 'Apply',
-  ctaHref = '/design-partner',
+  ctaText = 'Login',
+  ctaHref = 'https://app.rivtor.com',
   children,
 }: NavbarProps): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
