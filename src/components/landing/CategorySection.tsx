@@ -23,24 +23,24 @@ type Category = {
 const CATEGORIES: Category[] = [
   {
     label: 'Software',
-    headline: 'Helps you work',
-    description: 'Interfaces, dashboards, manual input',
-    items: ['You navigate menus', 'You fill out forms', 'You check dashboards'],
-    tagline: 'You do the work',
+    headline: 'Requires human operation',
+    description: 'Tools that assist but do not act',
+    items: ['Human interprets data', 'Human makes decisions', 'Human executes actions'],
+    tagline: 'Human in the loop',
   },
   {
-    label: 'Tools',
-    headline: 'Help you build',
-    description: 'APIs, workflows, integrations',
-    items: ['You wire up APIs', 'You configure workflows', 'You manage integrations'],
-    tagline: 'You manage the complexity',
+    label: 'Automation',
+    headline: 'Follows predefined rules',
+    description: 'Workflows that execute fixed patterns',
+    items: ['If-then logic only', 'Cannot handle ambiguity', 'Breaks on edge cases'],
+    tagline: 'Rule-bound execution',
   },
   {
     label: 'Rivtor',
-    headline: 'Gets it done',
-    description: 'Plans, drives, and finishes the work',
-    items: ['You set the goal', 'Rivtor owns execution', 'Work gets finished'],
-    tagline: 'Not a tool. An owner.',
+    headline: 'Autonomous agent',
+    description: 'Reasons, decides, and executes',
+    items: ['Perceives and models state', 'Generates novel plans', 'Adapts to changing context'],
+    tagline: 'Agent owns the outcome.',
   },
 ];
 
@@ -283,7 +283,7 @@ export default function CategorySection(): JSX.Element {
               fontFamily: 'var(--font-headline)',
             }}
           >
-            Tools help you work. Rivtor gets it done.
+            Software. Automation. Agent.
           </h2>
           <p
             style={{
@@ -296,7 +296,7 @@ export default function CategorySection(): JSX.Element {
               fontFamily: 'var(--font-body)',
             }}
           >
-            The difference between tools that assist and a system that owns.
+            Three paradigms. Only one owns the outcome.
           </p>
         </motion.div>
 
