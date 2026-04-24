@@ -22,27 +22,19 @@ interface FooterProps {
 
 const DEFAULT_FOOTER_GROUPS: FooterGroup[] = [
   {
-    title: 'Product',
+    title: 'Agent',
     links: [
-      { label: 'Overview', href: '#product' },
-      { label: 'How It Works', href: '/how-it-works' },
-      { label: 'Use Cases', href: '/use-cases' },
-      { label: 'Architecture', href: '/architecture' },
+      { label: 'Overview', href: '#overview' },
+      { label: 'Reasoning', href: '#how-it-reasons' },
+      { label: 'Capabilities', href: '#execution' },
     ],
   },
   {
-    title: 'Solutions',
+    title: 'Research',
     links: [
-      { label: 'For Startups', href: '/for-startups' },
-      { label: 'For Agencies', href: '/for-agencies' },
-      { label: 'For Operations', href: '/for-operations' },
-      { label: 'For Enterprises', href: '/for-enterprise' },
-    ],
-  },
-  {
-    title: 'Programs',
-    links: [
-      { label: 'Design Partner', href: '/design-partner' },
+      { label: 'Founder Psychology', href: '/research/founder-psychology' },
+      { label: 'Cognitive Load', href: '/research/cognitive-load' },
+      { label: 'Delegation Science', href: '/research/delegation' },
     ],
   },
   {
@@ -57,6 +49,7 @@ const DEFAULT_FOOTER_GROUPS: FooterGroup[] = [
     links: [
       { label: 'Trust Center', href: '/trust-center' },
       { label: 'Security', href: '/trust' },
+      { label: 'System Status', href: '/status' },
     ],
   },
 ];
@@ -74,7 +67,7 @@ const DEFAULT_LEGAL_LINKS: FooterLink[] = [
 export default function Footer({
   footerGroups = DEFAULT_FOOTER_GROUPS,
   bottomText = '',
-  tagline = 'Work that gets finished.',
+  tagline = 'An agent that executes your goals.',
   legalLinks = DEFAULT_LEGAL_LINKS,
 }: FooterProps): JSX.Element {
   return (

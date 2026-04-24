@@ -19,14 +19,12 @@ interface NavbarProps {
 }
 
 const DEFAULT_NAV_ITEMS: NavItem[] = [
-  { label: 'Product', href: '#overview' },
-  { label: 'Execution', href: '#execution' },
-  { label: 'Vision', href: '#vision' },
+  { label: 'Research', href: '#research' },
 ];
 
 export default function Navbar({
   navItems = DEFAULT_NAV_ITEMS,
-  ctaText = 'Login',
+  ctaText = 'Try the Agent',
   ctaHref = 'https://app.rivtor.com',
   children,
 }: NavbarProps): JSX.Element {

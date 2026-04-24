@@ -9,14 +9,16 @@ import type { JSX } from 'react';
 /* ------------------------------------------------------------------ */
 
 const BEFORE_ITEMS = [
-  { text: 'Assign tasks', icon: '✗' },
-  { text: 'Chase status', icon: '✗' },
-  { text: 'Follow up', icon: '✗' },
+  { text: 'Manual task assignment and tracking', icon: '✗' },
+  { text: 'Status meetings and progress reports', icon: '✗' },
+  { text: 'Context lost between tools', icon: '✗' },
+  { text: 'Decisions without memory of past outcomes', icon: '✗' },
 ];
 
 const AFTER_ITEMS = [
-  { text: 'Set the goal', highlight: false },
-  { text: 'Work gets done', highlight: true },
+  { text: 'State the objective', highlight: false },
+  { text: 'Agent perceives, models, and plans', highlight: false },
+  { text: 'Autonomous execution with verification', highlight: true },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -61,7 +63,7 @@ export default function FutureSection(): JSX.Element {
               fontFamily: 'var(--font-headline)',
             }}
           >
-            The way work gets done is changing.
+            Before and after agents.
           </h2>
           <p
             style={{
@@ -74,7 +76,7 @@ export default function FutureSection(): JSX.Element {
               fontFamily: 'var(--font-body)',
             }}
           >
-            From managing every step to setting the goal and moving on.
+            The shift from human-managed execution to agent-owned outcomes.
           </p>
         </motion.div>
 
@@ -119,7 +121,7 @@ export default function FutureSection(): JSX.Element {
                 color: 'rgba(255, 255, 255, 0.3)',
               }}
             >
-              Before Rivtor
+              Human-Managed Execution
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -165,7 +167,7 @@ export default function FutureSection(): JSX.Element {
                 fontFamily: 'var(--font-body)',
               }}
             >
-              Execution is your job.
+              Humans coordinate. Systems do not think.
             </div>
           </motion.div>
 
@@ -214,7 +216,7 @@ export default function FutureSection(): JSX.Element {
                 color: 'rgba(255, 255, 255, 0.6)',
               }}
             >
-              With Rivtor
+              Agent-Owned Execution
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -265,7 +267,7 @@ export default function FutureSection(): JSX.Element {
                   fontFamily: 'var(--font-body)',
                 }}
               >
-                No chasing. No follow-ups. Just results.
+                The agent perceives, models, plans, executes, and verifies. You define the objective.
               </p>
             </div>
 
@@ -280,7 +282,7 @@ export default function FutureSection(): JSX.Element {
                 fontFamily: 'var(--font-body)',
               }}
             >
-              Execution is handled.
+              The agent owns the outcome.
             </div>
           </motion.div>
         </div>
