@@ -11,32 +11,32 @@ const STEPS = [
   {
     number: '01',
     title: 'Perceive',
-    description: 'Ingest events from every company system in real-time.',
+    description: 'Collects data and events from all your tools in real time.',
   },
   {
     number: '02',
     title: 'Model',
-    description: 'Build a predictive world model from current state.',
+    description: "Builds a structured view of your company's current state.",
   },
   {
     number: '03',
     title: 'Decide',
-    description: 'Generate options, simulate futures, select the optimal path.',
+    description: 'Evaluates options, simulates outcomes, and chooses the best path.',
   },
   {
     number: '04',
     title: 'Plan',
-    description: 'Compile decisions into dependency-aware execution graphs.',
+    description: 'Breaks decisions into step-by-step tasks with clear dependencies.',
   },
   {
     number: '05',
     title: 'Act',
-    description: 'Dispatch tasks to agents, invoke tools, drive to completion.',
+    description: 'Executes tasks across tools and systems until the work is done.',
   },
   {
     number: '06',
     title: 'Learn',
-    description: 'Observe outcomes, assign credit, update predictions.',
+    description: 'Tracks results, identifies what worked, and improves future decisions.',
   },
 ];
 
@@ -93,7 +93,7 @@ export default function HowItWorksSection(): JSX.Element {
               fontFamily: 'var(--font-body)',
             }}
           >
-            Six steps. One closed loop. The agent improves with every iteration.
+            Six steps. One continuous loop. The agent gets better with every cycle.
           </p>
         </motion.div>
 
