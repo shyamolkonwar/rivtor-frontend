@@ -11,26 +11,26 @@ const AWARENESS_ITEMS = [
   {
     id: 'event-sourcing',
     label: 'Event Sourcing',
-    description: 'Every action is an immutable event. State is a calculated view replayed from the beginning.',
-    tags: ['Append-only ledger', 'Cryptographic chain', 'Deterministic replay'],
+    description: 'Every action is recorded as an event. All changes are stored in an append-only log. The current state is rebuilt from this history.',
+    tags: ['Append-only ledger', 'Cryptographic integrity', 'Deterministic replay'],
   },
   {
     id: 'ontology-projection',
     label: 'Ontology Projection',
-    description: 'Events continuously project into a living knowledge graph of your company\'s structure.',
-    tags: ['Core primitives', 'Relationship types', 'Flexible schema'],
+    description: 'Events form a live company graph. Incoming events continuously update a structured map of your company, including entities and relationships.',
+    tags: ['Core entities', 'Relationship mapping', 'Flexible schema'],
   },
   {
     id: 'integration-sync',
     label: 'Integration Sync',
-    description: 'Real-time sync across all platforms. Every external change becomes an internal event.',
-    tags: ['Continuous sync', 'Webhook handlers', 'Secure auth'],
+    description: 'Real-time connection across tools. All external systems stream updates into Rivtor. Every change becomes a trackable internal event.',
+    tags: ['Continuous sync', 'Webhook ingestion', 'Secure authentication'],
   },
   {
     id: 'context-builder',
     label: 'Context Builder',
-    description: 'Context assembled as an OS-level resource. Agents never rely on memory — the system remembers.',
-    tags: ['Planner', 'Build Engine', 'Growth Engine', 'Capital Engine'],
+    description: 'Shared context for all agents. Context is built and maintained centrally, so agents operate with full awareness instead of relying on memory.',
+    tags: ['Unified context', 'System-level memory', 'Agent-ready state'],
   },
 ];
 
@@ -584,7 +584,7 @@ export default function RealTimeAwarenessSection(): JSX.Element {
               fontFamily: 'var(--font-body)',
             }}
           >
-            Rivtor sees everything. Not through dashboards — through events.
+            Rivtor understands everything happening in your company through events, not dashboards.
           </p>
         </motion.div>
 
