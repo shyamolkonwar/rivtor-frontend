@@ -26,57 +26,57 @@ const STEPS: PipelineStep[] = [
     id: 'ontology',
     number: '01',
     label: 'Ontology',
-    description: 'Knowledge graph of your company',
-    detail: 'Products, customers, infrastructure, objectives — structured as core primitives with relationships.',
+    description: 'Structured map of your company',
+    detail: 'Captures products, customers, systems, and goals as connected entities.',
     tags: ['Entity graph', 'Relationship mapping', 'Flexible schema'],
   },
   {
     id: 'event-log',
     number: '02',
     label: 'Event Log',
-    description: 'Immutable ledger of every change',
-    detail: 'Append-only, cryptographically chained events. State is a projection of the log.',
-    tags: ['Cryptographic chain', 'Transactional outbox', 'Deterministic replay'],
+    description: 'Complete history of every change',
+    detail: 'Every action is recorded as an ordered, append-only event stream. Current state is built from this history.',
+    tags: ['Immutable log', 'Transactional events', 'Deterministic replay'],
   },
   {
     id: 'task-graph',
     number: '03',
     label: 'Task Graph',
-    description: 'Dependency-aware execution plan',
-    detail: 'Graph-based task management with efficient traversal, cycle detection, and parallel grouping.',
+    description: 'Execution plan with dependencies',
+    detail: 'Work is organized as a graph of tasks, showing order, dependencies, and parallel paths.',
     tags: ['Graph traversal', 'Cycle detection', 'Parallel execution'],
   },
   {
     id: 'decision',
     number: '04',
     label: 'Decision',
-    description: 'Multi-agent reasoning engine',
-    detail: 'Frames problems, generates structurally diverse options, consults specialist agents, evaluates with intelligence systems.',
-    tags: ['Option generation', 'Multi-agent consultation', 'Intelligence evaluation'],
+    description: 'Reasoning engine for choosing actions',
+    detail: 'Analyzes problems, generates options, consults specialized agents, and selects the best approach.',
+    tags: ['Option generation', 'Multi-agent reasoning', 'Evaluation systems'],
   },
   {
     id: 'planning',
     number: '05',
     label: 'Planning',
-    description: 'Strategic execution plan',
-    detail: 'Bridges decisions to executable task graphs. Adapts plans based on predictive models.',
-    tags: ['Decision → Plan', 'Plan → Task Graph', 'Adaptive planning'],
+    description: 'Turning decisions into executable steps',
+    detail: 'Converts decisions into structured plans and adapts them based on current context and predictions.',
+    tags: ['Decision to plan', 'Plan to task graph', 'Adaptive planning'],
   },
   {
     id: 'execution-graph',
     number: '06',
     label: 'Execution Graph',
-    description: 'Compiled DAG of atomic operations',
-    detail: 'Atomic nodes with verification, retry logic, and execution logs. Timeline API for replay.',
-    tags: ['Atomic nodes', 'Verification', 'Retry', 'Timeline replay'],
+    description: 'Reliable execution of operations',
+    detail: 'Tasks are broken into atomic steps with validation, retries, and full execution tracking.',
+    tags: ['Atomic operations', 'Verification', 'Retry logic', 'Timeline replay'],
   },
   {
     id: 'tasks',
     number: '07',
     label: 'Tasks',
-    description: 'Work dispatched to agents',
-    detail: 'Ready tasks detected via graph analysis, assigned to execution agents by capability match.',
-    tags: ['Ready detection', 'Agent routing', 'Parallel execution'],
+    description: 'Work assigned to agents',
+    detail: 'Ready tasks are identified and routed to the right agents for execution, including parallel work.',
+    tags: ['Task readiness', 'Agent routing', 'Parallel execution'],
   },
 ];
 
@@ -1188,7 +1188,7 @@ export default function ArchitectureSection(): JSX.Element {
               fontFamily: 'var(--font-headline)',
             }}
           >
-            From ontology to execution
+            From understanding to execution
           </h2>
           <p
             className="font-normal"
@@ -1201,7 +1201,7 @@ export default function ArchitectureSection(): JSX.Element {
               fontFamily: 'var(--font-body)',
             }}
           >
-            A deterministic pipeline that transforms understanding into action
+            A structured pipeline that turns company context into real work.
           </p>
         </motion.div>
 
