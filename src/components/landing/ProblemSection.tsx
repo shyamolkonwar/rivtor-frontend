@@ -11,22 +11,22 @@ const FAILURE_MODES = [
   {
     number: '01',
     label: 'Drift',
-    text: 'Goals get defined, but no system owns the outcome.',
+    text: 'Goals are set, but no one owns the outcome.',
   },
   {
     number: '02',
     label: 'Fragmentation',
-    text: 'Work fragments across tools with no unified context.',
+    text: 'Work is spread across tools, with no shared understanding.',
   },
   {
     number: '03',
     label: 'Overhead',
-    text: 'Humans chase status instead of driving results.',
+    text: 'Time is spent tracking work instead of getting results.',
   },
   {
     number: '04',
     label: 'Amnesia',
-    text: 'Decisions lack memory — every plan starts from zero.',
+    text: 'Decisions are not carried forward, so every plan starts again from zero.',
   },
 ];
 
@@ -79,7 +79,7 @@ export default function ProblemSection(): JSX.Element {
               fontFamily: 'var(--font-headline)',
             }}
           >
-            The death of momentum.
+            The loss of momentum.
           </h2>
           <p
             className="font-normal mx-auto lg:mx-0 lg:max-w-[560px]"
@@ -90,7 +90,8 @@ export default function ProblemSection(): JSX.Element {
               fontFamily: 'var(--font-body)',
             }}
           >
-            Goals drift. Context evaporates. Every plan starts from zero. The problem isn't effort — it's that no system remembers.
+            Goals lose direction. Context gets lost. Every plan restarts from zero.
+            The problem is not effort. It is that nothing remembers or follows through.
           </p>
         </motion.div>
 
