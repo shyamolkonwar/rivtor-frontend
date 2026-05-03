@@ -130,6 +130,33 @@ export default function Footer({
                 <Linkedin className="rv-footer-v4__social-icon" strokeWidth={1.5} />
               </a>
             </div>
+            <div className="rv-footer-v4__sponsor">
+              <span className="rv-footer-v4__sponsor-label">Supported by</span>
+              <a
+                href="https://e2b.dev/startups"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="E2B for Startups"
+              >
+                <img
+                  src="/White-1.png"
+                  alt="E2B for Startups"
+                  className="rv-footer-v4__sponsor-img"
+                />
+              </a>
+              <a
+                href="https://www.microsoft.com/en-us/startups"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Microsoft for Startups"
+              >
+                <img
+                  src="/MS_Startups_Badge.png"
+                  alt="Microsoft for Startups"
+                  className="rv-footer-v4__sponsor-img"
+                />
+              </a>
+            </div>
           </div>
 
           <div className="rv-footer-v4__links">
