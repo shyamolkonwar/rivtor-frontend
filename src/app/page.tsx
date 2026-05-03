@@ -9,11 +9,15 @@ import OrbitalTraceAnimation from '@/components/landing/OrbitalTraceAnimation';
 import { AnnouncementBadge } from '@/components/landing/AnnouncementBadge';
 import SystemBackground from '@/components/landing/SystemBackground';
 
-import ArchitectureSection from '@/components/landing/ArchitectureSection';
-import RealTimeAwarenessSection from '@/components/landing/RealTimeAwarenessSection';
-import AutonomousExecutionSection from '@/components/landing/AutonomousExecutionSection';
 import HowItWorksSection from '@/components/landing/HowItWorksSection';
 import ProblemSection from '@/components/landing/ProblemSection';
+import SolutionSection from '@/components/landing/SolutionSection';
+import WhatChangesSection from '@/components/landing/WhatChangesSection';
+import CapabilitiesSection from '@/components/landing/CapabilitiesSection';
+import LandingUseCasesSection from '@/components/landing/LandingUseCasesSection';
+import InteractionSection from '@/components/landing/InteractionSection';
+import ProductGlimpseSection from '@/components/landing/ProductGlimpseSection';
+import FinalCTASection from '@/components/landing/FinalCTASection';
 
 // SEO/GEO Components
 import { FAQDisplay, HowToSchema } from '@/components/seo';
@@ -74,8 +78,7 @@ export default function Page(): JSX.Element {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              An autonomous agent that perceives, decides, and acts.
-              The end of tools. The beginning of agency.
+              An autonomous agent that understands what's happening, decides what needs to be done, and does the work.
             </motion.p>
 
             <motion.div
@@ -88,7 +91,7 @@ export default function Page(): JSX.Element {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <a href="/demo" className="rv-btn-v4 rv-btn-v4--primary">
+              <a href="https://app.rivtor.com" className="rv-btn-v4 rv-btn-v4--primary">
                 Try the Agent
               </a>
               <a href="#how-it-works" className="rv-hero-v4__link">
@@ -123,17 +126,26 @@ export default function Page(): JSX.Element {
       {/* ===== PROBLEM SECTION ===== */}
       <ProblemSection />
 
+      {/* ===== SOLUTION SECTION ===== */}
+      <SolutionSection />
+
       {/* ===== HOW IT WORKS SECTION ===== */}
       <HowItWorksSection />
 
-      {/* ===== ARCHITECTURE SECTION ===== */}
-      <ArchitectureSection />
+      {/* ===== WHAT CHANGES SECTION ===== */}
+      <WhatChangesSection />
 
-      {/* ===== REAL-TIME AWARENESS SECTION ===== */}
-      <RealTimeAwarenessSection />
+      {/* ===== CAPABILITIES SECTION ===== */}
+      <CapabilitiesSection />
 
-      {/* ===== AUTONOMOUS EXECUTION SECTION ===== */}
-      <AutonomousExecutionSection />
+      {/* ===== USE CASES SECTION ===== */}
+      <LandingUseCasesSection />
+
+      {/* ===== INTERACTION SECTION ===== */}
+      <InteractionSection />
+
+      {/* ===== PRODUCT GLIMPSE SECTION ===== */}
+      <ProductGlimpseSection />
 
       {/* ===== FAQ SECTION ===== */}
       <FAQDisplay
@@ -142,6 +154,9 @@ export default function Page(): JSX.Element {
         subtitle="Architecture, execution, and reliability."
         maxItems={3}
       />
+
+      {/* ===== FINAL CTA SECTION ===== */}
+      <FinalCTASection />
 
       <Footer />
 
