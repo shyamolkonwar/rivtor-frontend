@@ -12,9 +12,8 @@ export interface NavItem {
 }
 
 const DEFAULT_NAV_ITEMS: NavItem[] = [
-  { label: 'Architecture', href: '#architecture' },
-  { label: 'Research', href: '/research' },
-  { label: 'Status', href: '/status' },
+  { label: 'Product', href: '/#overview' },
+  { label: 'Architecture', href: '/architecture' },
   { label: 'Docs', href: '/docs' },
 ];
 
