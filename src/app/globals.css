@@ -1426,6 +1426,32 @@ body {
   height: 16px;
 }
 
+.rv-footer-v4__sponsor {
+  display: flex;
+  align-items: center;
+  gap: var(--rv-space-8);
+  margin-top: var(--rv-space-16);
+}
+
+.rv-footer-v4__sponsor-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.rv-footer-v4__sponsor-img {
+  height: 18px;
+  width: auto;
+  border-radius: 2px;
+  opacity: 0.7;
+  transition: opacity 150ms ease;
+}
+
+.rv-footer-v4__sponsor a:hover .rv-footer-v4__sponsor-img {
+  opacity: 1;
+}
+
 .rv-footer-v4__links {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
