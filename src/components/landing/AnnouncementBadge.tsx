@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AnimatedGradientText } from "./AnimatedGradientText";
 
@@ -10,7 +10,8 @@ export function AnnouncementBadge({
   className?: string;
 }) {
   return (
-    <div
+    <a
+      href="/design-partner"
       className={cn(
         "group relative inline-flex items-center gap-2 rounded-full px-4 py-1.5",
         "border border-white/[0.08] bg-white/[0.02]",
@@ -27,11 +28,10 @@ export function AnnouncementBadge({
       <span className="h-3.5 w-px bg-white/20" />
 
       <AnimatedGradientText className="text-xs font-medium tracking-wide">
-        <span className="hidden sm:inline">Meet 01 — The First of Its Kind</span>
-        <span className="sm:hidden">01 — The First of Its Kind</span>
+        Announcing design partners program
       </AnimatedGradientText>
 
-      <ChevronRight className="h-3.5 w-3.5 text-white/40 transition-all duration-300 ease-in-out group-hover:translate-x-0.5 group-hover:text-white/70" />
-    </div>
+      <ArrowRight className="h-3.5 w-3.5 text-white/40 transition-all duration-300 ease-in-out group-hover:translate-x-0.5 group-hover:text-white/70" />
+    </a>
   );
 }
