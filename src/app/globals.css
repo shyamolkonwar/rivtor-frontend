@@ -60,27 +60,7 @@
   --font-label: var(--font-label);
   --font-mono: var(--font-mono);
 
-  /* Brand v4 Colors - Light Theme (Default) */
-  --rv-bg-primary: #FAFAF8;
-  --rv-bg-secondary: #FFFFFF;
-  --rv-bg-tertiary: #F5F5F0;
-  --rv-surface-1: #FFFFFF;
-  --rv-surface-2: #F5F5F0;
-  --rv-surface-3: #EAEAE5;
-  --rv-text-primary: #1A1A1A;
-  --rv-text-secondary: #6B6B6B;
-  --rv-text-muted: #9CA3AF;
-  --rv-accent-primary: rgba(37, 99, 235, 0.1);
-  --rv-accent-hover: rgba(37, 99, 235, 0.15);
-  --rv-accent-soft: rgba(37, 99, 235, 0.06);
-  --rv-border-soft: rgba(0, 0, 0, 0.08);
-  --rv-border-strong: #E5E5E0;
-  --rv-shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
-  --rv-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-/* Dark Theme Overrides */
-html[data-theme="dark"] {
+  /* Brand v4 Colors - Dark Theme */
   --rv-bg-primary: #0A0A0A;
   --rv-bg-secondary: #111111;
   --rv-bg-tertiary: #181818;

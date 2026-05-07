@@ -16,25 +16,37 @@ import {
 } from 'lucide-react';
 
 const PLAN_STEPS = [
-  { label: 'Define positioning', status: 'done' },
-  { label: 'Write content', status: 'done' },
-  { label: 'Build page', status: 'active' },
-  { label: 'Deploy', status: 'pending' },
+  { label: 'Investigate root cause', status: 'done' },
+  { label: 'Add circuit breaker', status: 'done' },
+  { label: 'Implement retry logic', status: 'active' },
+  { label: 'Deploy & monitor', status: 'pending' },
 ];
 
 const CODE_LINES = [
-  "const headline = 'See every signal in real time';",
-  "const subtext = 'Analytics that move as fast as your team';",
-  '',
-  'export default function LandingPage() {',
-  '  return <Hero headline={headline} subtext={subtext} />;',
+  'class CircuitBreaker {',
+  '  constructor(threshold = 5, timeout = 30000) {',
+  '    this.threshold = threshold;',
+  '    this.timeout = timeout;',
+  '    this.state = "CLOSED";',
+  '  }',
+  '  async execute(fn) {',
+  '    if (this.state === "OPEN") {',
+  '      throw new Error("Service unavailable");',
+  '    }',
+  '    try {',
+  '      return await fn();',
+  '    } catch (err) {',
+  '      this.recordFailure();',
+  '      throw err;',
+  '    }',
+  '  }',
   '}',
 ];
 
 const TABS = [
-  { label: 'Code', count: '3', icon: FileCode },
-  { label: 'Tools', count: '4', icon: Wrench },
-  { label: 'Metrics', count: '2', icon: BarChart3 },
+  { label: 'Code', count: '7', icon: FileCode },
+  { label: 'Tools', count: '5', icon: Wrench },
+  { label: 'Metrics', count: '4', icon: BarChart3 },
 ];
 
 export default function ProductUIMockup(): JSX.Element {
@@ -73,7 +85,7 @@ export default function ProductUIMockup(): JSX.Element {
                 fontFamily: 'var(--font-body)',
               }}
             >
-              Launch landing page
+              Fix payment service resilience
             </span>
           </div>
         </div>
@@ -141,7 +153,7 @@ export default function ProductUIMockup(): JSX.Element {
                     fontFamily: 'var(--font-body)',
                   }}
                 >
-                  Launch a landing page for the new analytics product.
+                  Fix intermittent 502 errors in the payment service and add circuit breaker protection with automatic retry and graceful degradation.
                 </p>
               </div>
             </div>
@@ -165,7 +177,7 @@ export default function ProductUIMockup(): JSX.Element {
                       fontFamily: 'var(--font-body)',
                     }}
                   >
-                    01 decided to lead with speed, clarity, and proof.
+                    01 traced the 502s to unhandled timeouts in the downstream fraud check service.
                   </p>
                 </div>
                 <p
@@ -177,7 +189,7 @@ export default function ProductUIMockup(): JSX.Element {
                     fontFamily: 'var(--font-body)',
                   }}
                 >
-                  Positioning first. Then content, build, and deploy.
+                  Implementing circuit breaker and exponential backoff to prevent cascade failures.
                 </p>
               </div>
             </div>
@@ -227,18 +239,18 @@ export default function ProductUIMockup(): JSX.Element {
                       Current action
                     </span>
                     <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.34)' }}>
-                      76%
+                      68%
                     </span>
                   </div>
                   <p style={{ color: 'rgba(255,255,255,0.74)', fontSize: '13px', margin: '0 0 10px 0', fontFamily: 'var(--font-body)' }}>
-                    Building the page and preparing deploy.
+                    Writing retry logic with exponential backoff and writing tests.
                   </p>
                   <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.07)' }}>
                     <motion.div
                       className="h-full rounded-full"
                       style={{ background: 'rgba(255,255,255,0.5)' }}
-                      initial={{ width: prefersReducedMotion ? '76%' : 0 }}
-                      whileInView={{ width: '76%' }}
+                      initial={{ width: prefersReducedMotion ? '68%' : 0 }}
+                      whileInView={{ width: '68%' }}
                       viewport={{ once: true, amount: 0.7 }}
                       transition={{ duration: prefersReducedMotion ? 0 : 1.1, ease: [0.22, 1, 0.36, 1] }}
                     />
@@ -287,10 +299,10 @@ export default function ProductUIMockup(): JSX.Element {
           <div className="flex-1 flex flex-col min-h-[280px]">
             <div className="px-4 py-2 flex items-center justify-between" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
               <span className="font-mono text-[11px]" style={{ color: 'rgba(255,255,255,0.72)' }}>
-                landing/page.tsx
+                services/payment/resilience.ts
               </span>
               <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.28)' }}>
-                +42
+                +156
               </span>
             </div>
 
@@ -311,7 +323,7 @@ export default function ProductUIMockup(): JSX.Element {
                   </span>
                   <span
                     style={{
-                      color: line.startsWith('const') ? 'rgba(255,255,255,0.72)' : 'rgba(255,255,255,0.5)',
+                      color: /^(class|constructor|async|if|try|catch|return|throw|this)/.test(line.trim()) ? 'rgba(255,255,255,0.72)' : 'rgba(255,255,255,0.5)',
                       fontSize: '11px',
                       fontFamily: 'var(--font-mono)',
                       lineHeight: 1.7,
@@ -330,7 +342,7 @@ export default function ProductUIMockup(): JSX.Element {
                   Tools
                 </p>
                 <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '12px', margin: 0, fontFamily: 'var(--font-body)' }}>
-                  Writer, Builder, Deploy
+                  Debugger, Architect, Test, Deploy
                 </p>
               </div>
               <div className="rounded-xl p-3" style={{ border: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.02)' }}>
@@ -338,7 +350,7 @@ export default function ProductUIMockup(): JSX.Element {
                   Status
                 </p>
                 <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '12px', margin: 0, fontFamily: 'var(--font-body)' }}>
-                  Preview ready
+                  Staging verified
                 </p>
               </div>
             </div>
