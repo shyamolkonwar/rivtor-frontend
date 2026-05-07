@@ -151,6 +151,7 @@ export default function DesignPartnerPage(): JSX.Element {
                 color: 'rgba(255,255,255,0.4)',
                 marginBottom: '24px',
                 fontFamily: 'var(--font-body)',
+                textAlign: 'center',
               }}
             >
               Design Partner Program
@@ -543,114 +544,134 @@ export default function DesignPartnerPage(): JSX.Element {
         </div>
       </section>
 
-      {/* ===== ENTERPRISE DATA HANDLING ===== */}
-      <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
+      {/* ===== TRUST & COMMITMENT ===== */}
+      <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '120px' }}>
         <div className="rv-container-v4">
           <Reveal>
-            <div
-              style={{
-                maxWidth: '700px',
-                margin: '0 auto',
-                padding: '32px',
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(255,255,255,0.06)',
-                borderRadius: '12px',
-              }}
-            >
-              <div style={{ marginBottom: '24px' }}>
-                <h3
-                  style={{
-                    fontSize: '22px',
-                    fontWeight: 600,
-                    lineHeight: '1.3',
-                    letterSpacing: '-0.5%',
-                    color: 'var(--rv-text-primary)',
-                    margin: '0 0 12px 0',
-                    fontFamily: 'var(--font-headline)',
-                  }}
-                >
-                  Enterprise-Ready Data Handling
-                </h3>
-              </div>
-              <ul
+            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 64px auto' }}>
+              <span
                 style={{
-                  margin: 0,
-                  padding: 0,
-                  listStyle: 'none',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '12px',
+                  display: 'inline-block',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.12em',
+                  color: 'rgba(255,255,255,0.4)',
+                  marginBottom: '16px',
+                  fontFamily: 'var(--font-body)',
                 }}
               >
-                <li style={{ fontSize: '16px', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)', lineHeight: '1.6' }}>
-                  <span style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>Data Processing Agreement (DPA)</span> — Ready for legal review
-                </li>
-                <li style={{ fontSize: '16px', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)', lineHeight: '1.6' }}>
-                  <span style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>Hybrid deployment</span> — Your infrastructure, your control
-                </li>
-                <li style={{ fontSize: '16px', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)', lineHeight: '1.6' }}>
-                  <span style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>Full data ownership</span> — Your data stays yours
-                </li>
-              </ul>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ===== SCARCITY BLOCK ===== */}
-      <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
-        <div className="rv-container-v4">
-          <Reveal>
-            <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto' }}>
+                Trust & Commitment
+              </span>
               <h2
                 className="dp-section-title"
                 style={{
-                  fontSize: '28px',
+                  fontSize: '36px',
                   fontWeight: 600,
-                  lineHeight: '1.3',
+                  lineHeight: '1.2',
                   letterSpacing: '-0.5%',
                   color: 'var(--rv-text-primary)',
                   margin: '0 0 16px 0',
                   fontFamily: 'var(--font-headline)',
                 }}
               >
-                We're onboarding a limited number of design partners.
+                Enterprise-Ready from Day One
               </h2>
-              <p
-                style={{
-                  fontSize: '16px',
-                  color: 'rgba(255,255,255,0.5)',
-                  margin: 0,
-                  fontFamily: 'var(--font-body)',
-                }}
-              >
-                Applications are reviewed manually.
-              </p>
             </div>
           </Reveal>
-        </div>
-      </section>
 
-      {/* ===== TRANSPARENCY BLOCK ===== */}
-      <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
-        <div className="rv-container-v4">
-          <Reveal>
+          <Reveal delay={0.1}>
             <div
               style={{
-                maxWidth: '700px',
-                margin: '0 auto',
-                padding: '24px',
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(255,255,255,0.06)',
-                borderRadius: '12px',
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '24px',
+                justifyContent: 'center',
+                maxWidth: '960px',
+                margin: '0 auto 64px auto',
+              }}
+            >
+              {[
+                {
+                  title: 'Data Processing Agreement',
+                  desc: 'Ready for legal review',
+                },
+                {
+                  title: 'Hybrid Deployment',
+                  desc: 'Your infrastructure, your control',
+                },
+                {
+                  title: 'Full Data Ownership',
+                  desc: 'Your data stays yours',
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  style={{
+                    flex: '1 1 260px',
+                    maxWidth: '320px',
+                    background:
+                      'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
+                    border: '1px solid rgba(255,255,255,0.06)',
+                    borderRadius: '20px',
+                    padding: '40px 28px',
+                    textAlign: 'center',
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontSize: '18px',
+                      fontWeight: 600,
+                      color: 'var(--rv-text-primary)',
+                      margin: '0 0 10px 0',
+                      fontFamily: 'var(--font-headline)',
+                      letterSpacing: '-0.3%',
+                      lineHeight: '1.3',
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: '15px',
+                      color: 'rgba(255,255,255,0.5)',
+                      margin: 0,
+                      fontFamily: 'var(--font-body)',
+                      lineHeight: '1.6',
+                    }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div
+              style={{
+                maxWidth: '640px',
+                margin: '0 auto 48px auto',
+                textAlign: 'center',
               }}
             >
               <p
                 style={{
+                  fontSize: '17px',
+                  color: 'rgba(255,255,255,0.7)',
+                  margin: '0 0 12px 0',
+                  fontFamily: 'var(--font-body)',
+                  lineHeight: '1.6',
+                }}
+              >
+                We're onboarding a limited number of design partners.
+                Applications are reviewed manually.
+              </p>
+              <p
+                style={{
                   fontSize: '14px',
-                  color: 'rgba(255,255,255,0.5)',
+                  color: 'rgba(255,255,255,0.4)',
                   margin: 0,
-                  textAlign: 'center',
                   fontFamily: 'var(--font-body)',
                   lineHeight: '1.6',
                 }}
@@ -659,44 +680,15 @@ export default function DesignPartnerPage(): JSX.Element {
               </p>
             </div>
           </Reveal>
-        </div>
-      </section>
 
-      {/* ===== FINAL CTA ===== */}
-      <section
-        id="apply"
-        className="rv-section-v4 rv-section-v4--centered"
-        style={{ paddingTop: '0', paddingBottom: '120px' }}
-        aria-labelledby="cta-title"
-      >
-        <div className="rv-container-v4">
-          <Reveal>
-            <h2
-              id="cta-title"
-              className="dp-cta-title"
-              style={{
-                fontSize: '40px',
-                fontWeight: 600,
-                lineHeight: '1.2',
-                letterSpacing: '-1%',
-                color: 'var(--rv-text-primary)',
-                margin: '0 auto 32px auto',
-                maxWidth: '700px',
-                textAlign: 'center',
-                fontFamily: 'var(--font-headline)',
-              }}
-            >
-              Apply to become a design partner
-            </h2>
-          </Reveal>
-
-          <Reveal delay={0.1}>
+          <Reveal delay={0.3}>
             <div style={{ textAlign: 'center' }}>
               <a
                 href="/apply"
                 className="rv-btn-v4 rv-btn-v4--primary"
+                style={{ fontSize: '16px', padding: '0 32px', height: '52px' }}
               >
-                Apply Now
+                Apply to Become a Design Partner
               </a>
             </div>
           </Reveal>
