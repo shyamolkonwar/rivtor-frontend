@@ -5,9 +5,9 @@ import { motion, useReducedMotion } from 'framer-motion';
 
 import Navbar from '@/components/landing/Navbar';
 import Footer from '@/components/landing/Footer';
-import OrbitalTraceAnimation from '@/components/landing/OrbitalTraceAnimation';
 import { AnnouncementBadge } from '@/components/landing/AnnouncementBadge';
 import SystemBackground from '@/components/landing/SystemBackground';
+import ProductUIMockup from '@/components/landing/ProductUIMockup';
 
 import HowItWorksSection from '@/components/landing/HowItWorksSection';
 import ProblemSection from '@/components/landing/ProblemSection';
@@ -16,7 +16,6 @@ import WhatChangesSection from '@/components/landing/WhatChangesSection';
 import CapabilitiesSection from '@/components/landing/CapabilitiesSection';
 import LandingUseCasesSection from '@/components/landing/LandingUseCasesSection';
 import InteractionSection from '@/components/landing/InteractionSection';
-import ProductGlimpseSection from '@/components/landing/ProductGlimpseSection';
 import FinalCTASection from '@/components/landing/FinalCTASection';
 
 // SEO/GEO Components
@@ -39,7 +38,6 @@ export default function Page(): JSX.Element {
       <section id="overview" className="rv-hero-v4" aria-labelledby="hero-title">
         <div className="rv-ambient-glow rv-ambient-glow--hero" />
         <div className="rv-container-v4 rv-hero-v4__grid">
-          {/* Left: Text */}
           <div className="rv-hero-v4__content">
             <motion.div
               initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 12 }}
@@ -65,7 +63,7 @@ export default function Page(): JSX.Element {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <span className="sm:hidden">Meet </span>01
+              Meet Rivtor 01
             </motion.h1>
 
             <motion.p
@@ -116,10 +114,18 @@ export default function Page(): JSX.Element {
             </motion.div>
           </div>
 
-          {/* Right: Animation */}
-          <div className="rv-hero-v4__visual">
-            <OrbitalTraceAnimation />
-          </div>
+          <motion.div
+            className="rv-hero-v4__ui-mockup"
+            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: prefersReducedMotion ? 0 : 0.9,
+              delay: prefersReducedMotion ? 0 : 0.35,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            <ProductUIMockup />
+          </motion.div>
         </div>
       </section>
 
@@ -143,9 +149,6 @@ export default function Page(): JSX.Element {
 
       {/* ===== INTERACTION SECTION ===== */}
       <InteractionSection />
-
-      {/* ===== PRODUCT GLIMPSE SECTION ===== */}
-      <ProductGlimpseSection />
 
       {/* ===== FAQ SECTION ===== */}
       <FAQDisplay
