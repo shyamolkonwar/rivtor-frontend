@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/lib/theme-context';
 import OrganizationSchema from '@/components/seo/OrganizationSchema';
 import ProductSchema from '@/components/seo/ProductSchema';
 
@@ -78,10 +79,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ProductSchema />
       </head>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-body bg-[#F0F2F5] text-[#111827] antialiased selection-bg-[#007aff] selection-text-white`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-body antialiased`}
         suppressHydrationWarning
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import type { JSX } from 'react';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 export interface NavItem {
   label: string;
@@ -49,8 +50,9 @@ export default function Navbar(): JSX.Element {
             ))}
           </div>
 
-          {/* Right side: CTA + hamburger */}
+          {/* Right side: Theme toggle + CTA + hamburger */}
           <div className="rv-nav-actions">
+            <ThemeToggle className="hidden sm:inline-flex" />
             <Link
               href="https://app.rivtor.com"
               className="rv-btn-v4 rv-btn-v4--primary rv-nav-cta"

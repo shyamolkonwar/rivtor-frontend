@@ -60,24 +60,46 @@
   --font-label: var(--font-label);
   --font-mono: var(--font-mono);
 
-   /* Brand v4 Colors - Dark Theme */
-   --rv-bg-primary: #0A0A0A;
-   --rv-bg-secondary: #111111;
-   --rv-bg-tertiary: #181818;
-   --rv-surface-1: #141414;
-   --rv-surface-2: #1A1A1A;
-   --rv-surface-3: #222222;
-   --rv-text-primary: #FFFFFF;
-   --rv-text-secondary: #A1A1AA;
-   --rv-text-muted: rgba(255, 255, 255, 0.5);
-   --rv-accent-primary: rgba(255, 255, 255, 0.1);
-   --rv-accent-hover: rgba(255, 255, 255, 0.15);
-   --rv-accent-soft: rgba(255, 255, 255, 0.08);
-   --rv-border-soft: rgba(255, 255, 255, 0.08);
-   --rv-border-strong: #27272A;
-   --rv-shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.4);
-   --rv-shadow-hover: 0 30px 70px rgba(0, 0, 0, 0.5);
+  /* Brand v4 Colors - Light Theme (Default) */
+  --rv-bg-primary: #FAFAF8;
+  --rv-bg-secondary: #FFFFFF;
+  --rv-bg-tertiary: #F5F5F0;
+  --rv-surface-1: #FFFFFF;
+  --rv-surface-2: #F5F5F0;
+  --rv-surface-3: #EAEAE5;
+  --rv-text-primary: #1A1A1A;
+  --rv-text-secondary: #6B6B6B;
+  --rv-text-muted: #9CA3AF;
+  --rv-accent-primary: rgba(37, 99, 235, 0.1);
+  --rv-accent-hover: rgba(37, 99, 235, 0.15);
+  --rv-accent-soft: rgba(37, 99, 235, 0.06);
+  --rv-border-soft: rgba(0, 0, 0, 0.08);
+  --rv-border-strong: #E5E5E0;
+  --rv-shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --rv-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
 
+/* Dark Theme Overrides */
+html[data-theme="dark"] {
+  --rv-bg-primary: #0A0A0A;
+  --rv-bg-secondary: #111111;
+  --rv-bg-tertiary: #181818;
+  --rv-surface-1: #141414;
+  --rv-surface-2: #1A1A1A;
+  --rv-surface-3: #222222;
+  --rv-text-primary: #FFFFFF;
+  --rv-text-secondary: #A1A1AA;
+  --rv-text-muted: rgba(255, 255, 255, 0.5);
+  --rv-accent-primary: rgba(255, 255, 255, 0.1);
+  --rv-accent-hover: rgba(255, 255, 255, 0.15);
+  --rv-accent-soft: rgba(255, 255, 255, 0.08);
+  --rv-border-soft: rgba(255, 255, 255, 0.08);
+  --rv-border-strong: #27272A;
+  --rv-shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.4);
+  --rv-shadow-hover: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+:root {
   /* Spacing Scale */
   --rv-space-4: 4px;
   --rv-space-8: 8px;
