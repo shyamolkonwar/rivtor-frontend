@@ -52,10 +52,10 @@ export default function Navbar(): JSX.Element {
           {/* Right side: CTA + hamburger */}
           <div className="rv-nav-actions">
             <Link
-              href="https://app.rivtor.com"
+              href="/apply"
               className="rv-btn-v4 rv-btn-v4--primary rv-nav-cta"
             >
-              Try the Agent
+              Apply
             </Link>
 
             <button

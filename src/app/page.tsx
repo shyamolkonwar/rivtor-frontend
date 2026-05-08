@@ -89,11 +89,11 @@ export default function Page(): JSX.Element {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <a href="https://app.rivtor.com" className="rv-btn-v4 rv-btn-v4--primary">
-                Try the Agent
+              <a href="/apply" className="rv-btn-v4 rv-btn-v4--primary">
+                Apply as Design Partner
               </a>
               <a href="#how-it-works" className="rv-hero-v4__link">
-                See how it works
+                See How 01 Works
                 <svg
                   width="16"
                   height="16"
