@@ -76,7 +76,7 @@ export default function Page(): JSX.Element {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              An autonomous agent that understands what's happening, decides what needs to be done, and does the work.
+              Plans engineering work, executes across tools, and keeps teams shipping.
             </motion.p>
 
             <motion.div
