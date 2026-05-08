@@ -33,58 +33,55 @@ function Reveal({ children, className = '', delay = 0 }: RevealProps): JSX.Eleme
 }
 
 const FOR_YOU_ITEMS = [
-  "You're actively building",
-  'You have real problems now',
-  'You move fast',
-  'You want execution, not advice',
+  "You're actively shipping product",
+  'Your engineering team moves fast',
+  'Execution slows down because of coordination overhead',
+  'You want measurable operational leverage',
+  "You're willing to work closely with us",
 ];
 
 const NOT_FOR_YOU_ITEMS = [
-  'Curious testers',
-  'Exploratory use',
-  'Slow-moving teams',
-  'Low urgency',
+  'Passive exploration',
+  'Teams looking for generic AI chat tools',
+  'Low-urgency environments',
+  'Companies without active engineering workflows',
 ];
 
 const WHAT_YOU_GET_ITEMS = [
   {
     main: 'Direct access to the Rivtor team',
-    support: 'Work directly with the people building the system.',
+    support: 'Work directly with the people building 01.',
   },
   {
-    main: 'Execution support, not recommendations',
-    support: 'We act. Not just advise.',
+    main: 'Fast iteration on real workflows',
+    support: 'We improve the system around real engineering problems, not demos.',
   },
   {
-    main: 'Rapid iteration on real problems',
-    support: 'Changes happen in days, not weeks.',
+    main: 'Early access to new capabilities',
+    support: 'Use features before public release.',
   },
   {
-    main: 'Early access to capabilities',
-    support: 'Use features before they exist publicly.',
+    main: 'Priority support',
+    support: 'Fast communication and rapid issue resolution.',
   },
   {
-    main: 'Influence on system direction',
-    support: 'Your problems shape what we build.',
+    main: 'Influence on the product roadmap',
+    support: 'Your workflows and bottlenecks directly shape what we build next.',
   },
 ];
 
 const HOW_WE_WORK_ITEMS = [
   {
-    main: 'Close collaboration',
-    support: "You're not a user. You're a partner.",
+    main: 'Collaborative deployment',
+    support: 'We work closely with your team to integrate 01 into real workflows.',
   },
   {
-    main: 'Honest feedback',
-    support: 'Direct input improves the system.',
+    main: 'Weekly feedback loops',
+    support: 'Fast iteration based on actual execution results.',
   },
   {
-    main: 'Fast communication',
-    support: 'No delays, no bottlenecks.',
-  },
-  {
-    main: 'Willingness to iterate',
-    support: 'We test, adjust, and move forward.',
+    main: 'Focus on measurable outcomes',
+    support: 'We care about faster execution, reduced overhead, better throughput, and less coordination friction.',
   },
 ];
 
@@ -103,16 +100,9 @@ export default function DesignPartnerPage(): JSX.Element {
             font-size: 16px !important;
             line-height: 1.6 !important;
           }
-          .dp-cta-title {
-            font-size: 28px !important;
-            line-height: 1.2 !important;
-          }
           .dp-section-title {
             font-size: 24px !important;
             line-height: 1.3 !important;
-          }
-          .dp-label {
-            font-size: 11px !important;
           }
           .dp-for-not-for-title {
             font-size: 16px !important;
@@ -131,14 +121,24 @@ export default function DesignPartnerPage(): JSX.Element {
             line-height: 1.6 !important;
           }
         }
+        @media (max-width: 768px) {
+          .dp-two-col {
+            grid-template-columns: 1fr !important;
+          }
+          .dp-divider {
+            display: none !important;
+          }
+          .dp-for-not-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
       `}</style>
       <Navbar />
 
-      {/* Navbar spacer */}
       <div style={{ height: '72px' }} aria-hidden="true" />
 
-      {/* ===== HERO SECTION ===== */}
-      <section className="rv-hero-v4" aria-labelledby="hero-title" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
+      {/* ===== HERO ===== */}
+      <section className="rv-hero-v4" aria-labelledby="hero-title" style={{ paddingTop: '120px', paddingBottom: '100px' }}>
         <div className="rv-container-v4">
           <Reveal>
             <span
@@ -165,7 +165,7 @@ export default function DesignPartnerPage(): JSX.Element {
               fontSize: '64px',
               fontWeight: 600,
               lineHeight: '1.1',
-              letterSpacing: '-1.5%',
+              letterSpacing: '-0.015em',
               color: 'var(--rv-text-primary)',
               margin: '0 auto 24px auto',
               maxWidth: '800px',
@@ -180,7 +180,7 @@ export default function DesignPartnerPage(): JSX.Element {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            Build With Rivtor
+            Build with Rivtor 01
           </motion.h1>
 
           <motion.p
@@ -191,7 +191,7 @@ export default function DesignPartnerPage(): JSX.Element {
               fontWeight: 400,
               color: 'rgba(255,255,255,0.7)',
               margin: '0 auto 32px auto',
-              maxWidth: '600px',
+              maxWidth: '640px',
               textAlign: 'center',
               fontFamily: 'var(--font-body)',
             }}
@@ -203,7 +203,7 @@ export default function DesignPartnerPage(): JSX.Element {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            We're working with a small group of startups to build the first AI execution system that doesn't just think — it actually gets things done.
+            We're partnering with a small group of engineering teams to shape the future of execution.
           </motion.p>
 
           <motion.div
@@ -216,21 +216,65 @@ export default function DesignPartnerPage(): JSX.Element {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <a
-              href="/apply"
-              className="rv-btn-v4 rv-btn-v4--primary"
-            >
+            <a href="/apply" className="rv-btn-v4 rv-btn-v4--primary">
               Apply to Join
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* ===== WHAT RIVTOR IS ===== */}
-      <section className="rv-section-v4" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+      {/* ===== WHAT 01 IS ===== */}
+      <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
         <div className="rv-container-v4">
           <Reveal>
-            <div style={{ maxWidth: '700px' }}>
+            <div style={{ maxWidth: '720px', margin: '0 auto', textAlign: 'center' }}>
+              <p
+                className="dp-section-text"
+                style={{
+                  fontSize: '20px',
+                  lineHeight: '1.6',
+                  color: 'rgba(255,255,255,0.75)',
+                  margin: '0 0 16px 0',
+                  fontFamily: 'var(--font-body)',
+                  fontWeight: 400,
+                }}
+              >
+                Rivtor 01 is not another copilot or workflow tool.
+              </p>
+              <p
+                className="dp-section-text"
+                style={{
+                  fontSize: '20px',
+                  lineHeight: '1.6',
+                  color: 'rgba(255,255,255,0.75)',
+                  margin: '0 0 32px 0',
+                  fontFamily: 'var(--font-body)',
+                  fontWeight: 400,
+                }}
+              >
+                It plans engineering work, executes across tools, and keeps teams shipping.
+              </p>
+              <p
+                style={{
+                  fontSize: '17px',
+                  lineHeight: '1.6',
+                  color: 'rgba(255,255,255,0.5)',
+                  margin: 0,
+                  fontFamily: 'var(--font-body)',
+                }}
+              >
+                We're looking for fast-moving startups that want to reduce coordination overhead, move faster, and turn plans into completed work.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== WHY TEAMS ARE JOINING ===== */}
+      <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
+        <div className="rv-container-v4">
+          <Reveal>
+            <div style={{ maxWidth: '720px' }}>
               <h2
                 className="dp-section-title"
                 style={{
@@ -239,82 +283,117 @@ export default function DesignPartnerPage(): JSX.Element {
                   lineHeight: '1.3',
                   letterSpacing: '-0.5%',
                   color: 'var(--rv-text-primary)',
-                  margin: '0 0 16px 0',
+                  margin: '0 0 24px 0',
                   fontFamily: 'var(--font-headline)',
                 }}
               >
-                Rivtor is an execution system.
+                Why teams are joining
               </h2>
               <p
+                className="dp-section-text"
                 style={{
                   fontSize: '18px',
-                  lineHeight: '28px',
+                  lineHeight: '1.6',
                   color: 'rgba(255,255,255,0.6)',
-                  margin: 0,
+                  margin: '0 0 20px 0',
                   fontFamily: 'var(--font-body)',
                 }}
               >
-                It takes goals, plans actions, and drives outcomes across your company.
+                Engineering teams are overloaded with coordination, repetitive operational work, tracking tasks across tools, and execution bottlenecks.
+              </p>
+              <p
+                className="dp-section-text"
+                style={{
+                  fontSize: '18px',
+                  lineHeight: '1.6',
+                  color: 'rgba(255,255,255,0.6)',
+                  margin: '0 0 20px 0',
+                  fontFamily: 'var(--font-body)',
+                }}
+              >
+                The problem is not lack of talent. The problem is that too much engineering time is spent managing work instead of shipping it.
+              </p>
+              <p
+                className="dp-section-text"
+                style={{
+                  fontSize: '18px',
+                  lineHeight: '1.6',
+                  color: 'rgba(255,255,255,0.8)',
+                  margin: 0,
+                  fontFamily: 'var(--font-body)',
+                  fontWeight: 500,
+                }}
+              >
+                Rivtor 01 is built to change that.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ===== WHY THIS EXISTS ===== */}
+      {/* ===== WHAT 01 HELPS WITH ===== */}
       <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
         <div className="rv-container-v4">
           <Reveal>
-            <div style={{ maxWidth: '800px' }}>
-              <p
-                className="dp-section-text"
+            <div style={{ maxWidth: '720px' }}>
+              <h2
+                className="dp-section-title"
                 style={{
-                  fontSize: '20px',
-                  lineHeight: '1.5',
-                  color: 'rgba(255,255,255,0.8)',
-                  margin: '0 0 12px 0',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 400,
+                  fontSize: '32px',
+                  fontWeight: 600,
+                  lineHeight: '1.3',
+                  letterSpacing: '-0.5%',
+                  color: 'var(--rv-text-primary)',
+                  margin: '0 0 24px 0',
+                  fontFamily: 'var(--font-headline)',
                 }}
               >
-                This isn't a typical launch.
-              </p>
-              <p
-                className="dp-section-text"
-                style={{
-                  fontSize: '20px',
-                  lineHeight: '1.5',
-                  color: 'rgba(255,255,255,0.8)',
-                  margin: '0 0 12px 0',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 400,
-                }}
-              >
-                We're building it with a small group of companies.
-              </p>
-              <p
-                className="dp-section-text"
-                style={{
-                  fontSize: '20px',
-                  lineHeight: '1.5',
-                  color: 'rgba(255,255,255,0.8)',
-                  margin: 0,
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 400,
-                }}
-              >
-                Through real execution.
-              </p>
+                What 01 helps with
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                {[
+                  'Turning goals into execution plans',
+                  'Coordinating work across engineering tools',
+                  'Managing tasks and follow-through',
+                  'Reducing manual operational overhead',
+                  'Keeping execution moving without constant input',
+                ].map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
+                    <span
+                      style={{
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        background: 'rgba(255,255,255,0.4)',
+                        flexShrink: 0,
+                        marginTop: '10px',
+                      }}
+                    />
+                    <p
+                      style={{
+                        fontSize: '17px',
+                        color: 'rgba(255,255,255,0.7)',
+                        margin: 0,
+                        fontFamily: 'var(--font-body)',
+                        lineHeight: '1.6',
+                      }}
+                    >
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ===== WHO THIS IS FOR (FILTER SECTION) ===== */}
+      {/* ===== FOR / NOT FOR ===== */}
       <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
         <div className="rv-container-v4">
           <Reveal>
             <div
+              className="dp-for-not-grid"
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
@@ -322,13 +401,12 @@ export default function DesignPartnerPage(): JSX.Element {
                 maxWidth: '900px',
               }}
             >
-              {/* LEFT - FOR YOU */}
               <div
                 style={{
                   background: 'rgba(255,255,255,0.02)',
                   border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: '12px',
-                  padding: '24px',
+                  borderRadius: '16px',
+                  padding: '32px',
                 }}
               >
                 <h3
@@ -349,9 +427,10 @@ export default function DesignPartnerPage(): JSX.Element {
                       key={item}
                       style={{
                         fontSize: '16px',
-                        color: 'rgba(255,255,255,0.8)',
+                        color: 'rgba(255,255,255,0.75)',
                         margin: 0,
                         fontFamily: 'var(--font-body)',
+                        lineHeight: '1.5',
                       }}
                     >
                       {item}
@@ -360,13 +439,12 @@ export default function DesignPartnerPage(): JSX.Element {
                 </div>
               </div>
 
-              {/* RIGHT - NOT FOR YOU */}
               <div
                 style={{
                   background: 'rgba(255,255,255,0.01)',
                   border: '1px solid rgba(255,255,255,0.05)',
-                  borderRadius: '12px',
-                  padding: '24px',
+                  borderRadius: '16px',
+                  padding: '32px',
                 }}
               >
                 <h3
@@ -390,6 +468,7 @@ export default function DesignPartnerPage(): JSX.Element {
                         color: 'rgba(255,255,255,0.4)',
                         margin: 0,
                         fontFamily: 'var(--font-body)',
+                        lineHeight: '1.5',
                       }}
                     >
                       {item}
@@ -402,11 +481,12 @@ export default function DesignPartnerPage(): JSX.Element {
         </div>
       </section>
 
-      {/* ===== PARTNERSHIP GRID ===== */}
+      {/* ===== WHAT YOU GET / HOW WE WORK ===== */}
       <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
         <div className="rv-container-v4">
           <Reveal>
             <div
+              className="dp-two-col"
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1px 1fr',
@@ -414,7 +494,6 @@ export default function DesignPartnerPage(): JSX.Element {
                 alignItems: 'start',
               }}
             >
-              {/* LEFT - WHAT YOU GET */}
               <div>
                 <h3
                   className="dp-section-header"
@@ -438,13 +517,11 @@ export default function DesignPartnerPage(): JSX.Element {
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
-                      whileHover={{ opacity: 0.8 }}
-                      style={{ cursor: 'default' }}
                     >
                       <p
                         className="dp-item-main"
                         style={{
-                          fontSize: '20px',
+                          fontSize: '18px',
                           fontWeight: 500,
                           color: 'rgba(255,255,255,0.9)',
                           margin: '0 0 6px 0',
@@ -458,22 +535,22 @@ export default function DesignPartnerPage(): JSX.Element {
                       <p
                         className="dp-item-support"
                         style={{
-                          fontSize: '16px',
-                          color: 'rgba(255,255,255,0.5)',
+                          fontSize: '15px',
+                          color: 'rgba(255,255,255,0.45)',
                           margin: 0,
                           fontFamily: 'var(--font-body)',
                           lineHeight: '1.6',
                         }}
                       >
-                        → {item.support}
+                        {item.support}
                       </p>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
-              {/* VERTICAL DIVIDER */}
               <div
+                className="dp-divider"
                 style={{
                   width: '1px',
                   background: 'rgba(255,255,255,0.06)',
@@ -482,7 +559,6 @@ export default function DesignPartnerPage(): JSX.Element {
                 }}
               />
 
-              {/* RIGHT - HOW WE WORK */}
               <div>
                 <h3
                   className="dp-section-header"
@@ -506,13 +582,11 @@ export default function DesignPartnerPage(): JSX.Element {
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
-                      whileHover={{ opacity: 0.8 }}
-                      style={{ cursor: 'default' }}
                     >
                       <p
                         className="dp-item-main"
                         style={{
-                          fontSize: '20px',
+                          fontSize: '18px',
                           fontWeight: 500,
                           color: 'rgba(255,255,255,0.9)',
                           margin: '0 0 6px 0',
@@ -526,14 +600,14 @@ export default function DesignPartnerPage(): JSX.Element {
                       <p
                         className="dp-item-support"
                         style={{
-                          fontSize: '16px',
-                          color: 'rgba(255,255,255,0.5)',
+                          fontSize: '15px',
+                          color: 'rgba(255,255,255,0.45)',
                           margin: 0,
                           fontFamily: 'var(--font-body)',
                           lineHeight: '1.6',
                         }}
                       >
-                        → {item.support}
+                        {item.support}
                       </p>
                     </motion.div>
                   ))}
@@ -544,11 +618,11 @@ export default function DesignPartnerPage(): JSX.Element {
         </div>
       </section>
 
-      {/* ===== TRUST & COMMITMENT ===== */}
-      <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '120px' }}>
+      {/* ===== SECURITY & INFRASTRUCTURE ===== */}
+      <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '100px' }}>
         <div className="rv-container-v4">
           <Reveal>
-            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 64px auto' }}>
+            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 48px auto' }}>
               <span
                 style={{
                   display: 'inline-block',
@@ -561,22 +635,8 @@ export default function DesignPartnerPage(): JSX.Element {
                   fontFamily: 'var(--font-body)',
                 }}
               >
-                Trust & Commitment
+                Security & Infrastructure
               </span>
-              <h2
-                className="dp-section-title"
-                style={{
-                  fontSize: '36px',
-                  fontWeight: 600,
-                  lineHeight: '1.2',
-                  letterSpacing: '-0.5%',
-                  color: 'var(--rv-text-primary)',
-                  margin: '0 0 16px 0',
-                  fontFamily: 'var(--font-headline)',
-                }}
-              >
-                Enterprise-Ready from Day One
-              </h2>
             </div>
           </Reveal>
 
@@ -588,21 +648,21 @@ export default function DesignPartnerPage(): JSX.Element {
                 gap: '24px',
                 justifyContent: 'center',
                 maxWidth: '960px',
-                margin: '0 auto 64px auto',
+                margin: '0 auto',
               }}
             >
               {[
                 {
-                  title: 'Data Processing Agreement',
-                  desc: 'Ready for legal review',
+                  title: 'Deployment flexibility',
+                  desc: 'Cloud or private infrastructure options available.',
                 },
                 {
-                  title: 'Hybrid Deployment',
-                  desc: 'Your infrastructure, your control',
+                  title: 'Data ownership',
+                  desc: 'Your data remains fully under your control.',
                 },
                 {
-                  title: 'Full Data Ownership',
-                  desc: 'Your data stays yours',
+                  title: 'Enterprise-ready foundation',
+                  desc: 'Security, access control, and deployment support built from day one.',
                 },
               ].map((item) => (
                 <div
@@ -614,13 +674,13 @@ export default function DesignPartnerPage(): JSX.Element {
                       'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
                     border: '1px solid rgba(255,255,255,0.06)',
                     borderRadius: '20px',
-                    padding: '40px 28px',
+                    padding: '36px 28px',
                     textAlign: 'center',
                   }}
                 >
                   <h3
                     style={{
-                      fontSize: '18px',
+                      fontSize: '17px',
                       fontWeight: 600,
                       color: 'var(--rv-text-primary)',
                       margin: '0 0 10px 0',
@@ -646,43 +706,51 @@ export default function DesignPartnerPage(): JSX.Element {
               ))}
             </div>
           </Reveal>
+        </div>
+      </section>
 
-          <Reveal delay={0.2}>
-            <div
-              style={{
-                maxWidth: '640px',
-                margin: '0 auto 48px auto',
-                textAlign: 'center',
-              }}
-            >
+      {/* ===== LIMITED ACCESS + FINAL CTA ===== */}
+      <section className="rv-section-v4" style={{ paddingTop: '0', paddingBottom: '140px' }}>
+        <div className="rv-container-v4">
+          <Reveal>
+            <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>
+              <h2
+                className="dp-section-title"
+                style={{
+                  fontSize: '32px',
+                  fontWeight: 600,
+                  lineHeight: '1.2',
+                  letterSpacing: '-0.5%',
+                  color: 'var(--rv-text-primary)',
+                  margin: '0 0 16px 0',
+                  fontFamily: 'var(--font-headline)',
+                }}
+              >
+                Limited Design Partner Access
+              </h2>
               <p
                 style={{
                   fontSize: '17px',
-                  color: 'rgba(255,255,255,0.7)',
-                  margin: '0 0 12px 0',
+                  color: 'rgba(255,255,255,0.6)',
+                  margin: '0 0 32px 0',
                   fontFamily: 'var(--font-body)',
                   lineHeight: '1.6',
                 }}
               >
-                We're onboarding a limited number of design partners.
-                Applications are reviewed manually.
+                We're onboarding a limited number of engineering teams for the initial rollout. Applications are reviewed manually to ensure strong alignment and fast execution.
               </p>
               <p
                 style={{
-                  fontSize: '14px',
-                  color: 'rgba(255,255,255,0.4)',
-                  margin: 0,
+                  fontSize: '18px',
+                  color: 'rgba(255,255,255,0.85)',
+                  margin: '0 0 32px 0',
                   fontFamily: 'var(--font-body)',
-                  lineHeight: '1.6',
+                  lineHeight: '1.5',
+                  fontWeight: 500,
                 }}
               >
-                We're currently onboarding design partners and defining pilot scopes. Formal contracts and billing begin after entity setup.
+                Help shape the first execution agent built for engineering teams.
               </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <div style={{ textAlign: 'center' }}>
               <a
                 href="/apply"
                 className="rv-btn-v4 rv-btn-v4--primary"
